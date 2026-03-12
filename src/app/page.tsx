@@ -20,10 +20,19 @@ export default function Home() {
     // Testimonial State
     const [testIndex, setTestIndex] = useState(0);
     const testimonials = [
-        { name: "Rajat M., Facility Director", quote: "Switching to SolisPark's OPEX model was the best financial decision for our manufacturing unit. Day-one savings and zero operational disruption.", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop" },
-        { name: "Priya S., Operations Head", quote: "Their utility-scale EPC execution is flawless. Our 5MW plant was synchronized to the grid weeks ahead of schedule.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" },
-        { name: "Anil K., Plant Manager", quote: "The 30-year Axitec warranty and tier-1 bifacial panels give us complete peace of mind for our heavy-duty energy needs.", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" }
+        { name: "Rajat M., Facility Director", quote: "Switching to SolisPark's OPEX model was the best financial decision for our manufacturing unit. Day-one savings and zero operational disruption." },
+        { name: "Priya S., Operations Head", quote: "Their utility-scale EPC execution is flawless. Our 5MW plant was synchronized to the grid weeks ahead of schedule." },
+        { name: "Anil K., Plant Manager", quote: "The 30-year Axitec warranty and tier-1 bifacial panels give us complete peace of mind for our heavy-duty energy needs." }
     ];
+
+    // Helper function to extract initials for avatar placeholder
+    const getInitials = (name: string) => {
+        const parts = name.split(",")[0].trim().split(" ");
+        if (parts.length > 1) {
+            return (parts[0][0] + parts[1][0]).toUpperCase();
+        }
+        return parts[0][0].toUpperCase();
+    };
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -71,14 +80,14 @@ export default function Home() {
             </AnimatePresence>
 
             {/* THE BACKGROUND */}
-            <div className="fixed inset-0 w-full h-screen -z-20 bg-[#FBFBFB]">
+            <div className="fixed inset-0 w-full h-[100svh] -z-20 bg-gradient-to-b from-[#050505] to-[#0f172a]">
                 <SequenceCanvas />
             </div>
 
             {/* THE HERO TRACK (Scroll Area) */}
             <main ref={containerRef} className="relative bg-transparent flex flex-col">
                 {/* SECTION 1: 0-100vh */}
-                <div className="min-h-[100vh] w-full flex items-center justify-center snap-center px-6 py-24">
+                <div className="flex flex-col justify-center min-h-[85svh] w-full items-center snap-center px-6 pt-16 pb-8">
                     <motion.div 
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -86,33 +95,21 @@ export default function Home() {
                         className="bg-white/30 backdrop-blur-[16px] border border-white/20 p-6 md:p-12 rounded-[24px] shadow-2xl w-[90%] md:w-auto max-w-5xl mx-auto text-center"
                     >
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#0A192F] mb-6 leading-tight">
-                            Engineering India&apos;s <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FBBF24] to-[#E5A500]">Megawatt Future.</span>
+                            Stop Renting Your Power. <br className="hidden md:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FBBF24] to-[#E5A500]">Own Your Energy Asset.</span>
                         </h1>
                         <h2 className="text-xl md:text-2xl text-[#0A192F]/90 font-medium mb-4">
-                            End-to-end solar infrastructure development.
+                            We engineer end-to-end, utility-scale solar infrastructure that slashes your operational overhead by up to 70% and captures massive tax benefits.
                         </h2>
-                        <p className="text-base md:text-lg text-[#0A192F]/70 max-w-2xl font-normal mx-auto">
-                            From land acquisition to grid integration, we build the nation&apos;s clean energy future.
-                        </p>
+                        <Link href="/contact" className="inline-block mt-8 bg-golden text-[#0A192F] font-black hover:scale-105 transition-transform duration-300 px-10 py-6 text-xl md:text-2xl rounded-2xl shadow-[0_15px_35px_rgba(255,183,3,0.4)] tracking-tight">
+                            Book Your Free Energy Audit
+                        </Link>
                     </motion.div>
                 </div>
 
                 {/* SECTION 2: 100-200vh */}
                 <div className="min-h-[100vh] w-full flex items-center justify-start snap-center px-6 md:px-12 py-24">
-                     <motion.div 
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -50 }}
-                        className="bg-white/30 backdrop-blur-[16px] border border-white/20 p-6 md:p-12 rounded-[24px] shadow-2xl w-[90%] md:w-auto max-w-xl mx-auto text-left"
-                    >
-                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#0A192F] mb-6 leading-tight">
-                            Bifacial Precision.<br />Industrial Scale.
-                        </h2>
-                        <p className="text-lg text-[#0A192F]/80 leading-relaxed font-medium">
-                            Heavy-duty aluminum framing and advanced anti-reflective tempered glass engineered for extreme weather and maximum durability across acres of terrain.
-                        </p>
-                    </motion.div>
+                    {/* Visual breathing space - completely removed empty node to allow the 3D animation sequence to breathe */}
                 </div>
 
                 {/* SECTION 3: 200-300vh */}
@@ -124,22 +121,26 @@ export default function Home() {
                         className="bg-white/30 backdrop-blur-[16px] border border-white/20 p-6 md:p-12 rounded-[24px] shadow-2xl w-[90%] md:w-auto max-w-xl mx-auto text-left md:text-right"
                     >
                         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#0A192F] mb-6 leading-tight">
-                            Bifacial Efficiency.<br />Maximum Yield.
+                            Turn Your Idle Space <br />Into a Profit Center.
                         </h2>
-                        <ul className="text-lg text-[#0A192F]/80 leading-relaxed space-y-4 font-medium inline-block text-left">
+                        <ul className="text-lg text-[#0A192F]/80 leading-relaxed space-y-4 font-medium inline-block text-left mb-8">
                             <li className="flex items-start gap-3">
                                 <span className="text-golden font-bold mt-1">•</span>
-                                <span>Dual-sided energy capture generates power from both direct and reflected sunlight.</span>
+                                <span><strong>Immediate Cost Reduction:</strong> Offset up to 100% of your commercial energy overhead from day one of grid integration.</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-golden font-bold mt-1">•</span>
-                                <span>High-density monocrystalline cells ensure peak megawatt output.</span>
+                                <span><strong>Accelerated Depreciation:</strong> Capture up to 40% massive tax benefits in year one under current government frameworks.</span>
                             </li>
                             <li className="flex items-start gap-3">
                                 <span className="text-golden font-bold mt-1">•</span>
-                                <span>Lower levelized cost of energy (LCOE) for massive industrial ROI.</span>
+                                <span><strong>Zero-Friction Execution:</strong> From land acquisition and MNRE approvals to final commissioning, we handle the entire lifecycle. You just watch the savings compute.</span>
                             </li>
                         </ul>
+                        <br />
+                        <Link href="/contact" className="inline-block bg-[#0A192F] hover:bg-[#112240] text-golden font-bold px-8 py-4 rounded-xl shadow-xl hover:-translate-y-1 transition-all text-lg tracking-tight text-center md:text-left">
+                            Schedule a Strategy Call
+                        </Link>
                     </motion.div>
                 </div>
 
@@ -323,33 +324,113 @@ export default function Home() {
 
 
 
-        {/* 4. LIGHT MODE PORTFOLIO MARQUEE */}
-        <div className="relative w-full bg-[#F5F5F5] text-[#111111] pt-32 pb-24 z-20">
-            {/* ELITE PORTFOLIO */}
-            <motion.section 
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="w-full pb-24 border-b border-black/5 relative z-20 overflow-hidden mb-32"
-            >
+        {/* 4. DARK MODE B2B MARQUEES & WARRANTY */}
+        <div className="relative w-full bg-[#0A192F] text-white pt-32 pb-24 z-20 flex flex-col gap-16 md:gap-24">
+            
+            {/* SECTION 1: THE AUTHORITY LAYER (Top Marquee) */}
+            <section className="w-full relative z-20 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-12">
-                    <h3 className="text-sm font-bold tracking-widest text-black/50 uppercase">
-                        Powering India's Critical Infrastructure
-                    </h3>
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                        Trusted by India&apos;s Infrastructure Pioneers.
+                    </h2>
+                    <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-medium">
+                        From national research institutions to industrial conglomerates, we provide the energy backbone for the leaders of tomorrow.
+                    </p>
                 </div>
-                {/* Infinite Marquee - Grayscale Hover */}
+                {/* Infinite Marquee - Left */}
                 <div className="relative flex overflow-x-hidden group">
-                    <div className="animate-marquee flex whitespace-nowrap items-center space-x-24 px-12 min-w-max">
-                        {/* logos duplicated for seamless loop */}
-                        {["/isro-logo.png", "/rbi-logo.png", "/iisc-logo.png", "/reliance-logo.png", "/tcs-logo.png", "/isro-logo.png", "/rbi-logo.png", "/iisc-logo.png", "/reliance-logo.png", "/tcs-logo.png"].map((logo, idx) => (
-                            <div key={idx} className="h-24 flex items-center justify-center p-4 bg-transparent w-64">
-                                <Image src={logo} alt={`Client Logo ${idx}`} width={200} height={100} className="h-full max-w-[80%] object-contain grayscale brightness-0 opacity-40 hover:grayscale-0 hover:opacity-100 transition duration-500 cursor-pointer" />
+                    {/* Fade Edges */}
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A192F] to-transparent z-10"></div>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0A192F] to-transparent z-10"></div>
+                    
+                    <div className="animate-marquee flex whitespace-nowrap items-center space-x-12 md:space-x-20 px-8 min-w-max">
+                        {/* duplicated arrays for seamless endless scroll - heavily duplicated for short arrays */}
+                        {[
+                            "/isro-logo.png", "/iisc-logo.png", "/gail-logo.png", "/tcs-log.png", "/reliance-logo.png",
+                            "/isro-logo.png", "/iisc-logo.png", "/gail-logo.png", "/tcs-log.png", "/reliance-logo.png",
+                            "/isro-logo.png", "/iisc-logo.png", "/gail-logo.png", "/tcs-log.png", "/reliance-logo.png",
+                            "/isro-logo.png", "/iisc-logo.png", "/gail-logo.png", "/tcs-log.png", "/reliance-logo.png"
+                        ].map((logo, idx) => {
+                            // Apply invert filter only to logos that need it in dark mode
+                            const needsInvert = logo.includes('iisc') || logo.includes('rbi') || logo.includes('reliance') || logo.includes('tcs');
+                            return (
+                                <div key={idx} className="h-24 flex items-center justify-center p-4 bg-transparent w-40 md:w-56">
+                                    <img 
+                                        src={logo} 
+                                        alt="Strategic Client" 
+                                        className={`h-[50px] md:h-[70px] max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-500 cursor-pointer ${needsInvert ? 'invert brightness-0 hover:invert hover:brightness-0' : ''}`} 
+                                    />
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* SECTION 2: THE 30-YEAR GUARANTEE (Warranty Card) */}
+            <section className="w-full relative z-20">
+                <div className="max-w-5xl mx-auto px-6 md:px-12">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.6 }}
+                        className="bg-white/5 backdrop-blur-2xl border border-golden/30 rounded-[2rem] p-10 md:p-16 text-center shadow-[0_0_50px_rgba(255,183,3,0.15)] relative overflow-hidden"
+                    >
+                        {/* Glow accent */}
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-golden to-transparent opacity-50"></div>
+                        
+                        <div className="mb-10 flex justify-center">
+                            <img 
+                                src="/axitec-logo.jpg" 
+                                alt="Axitec Solar Guarantee" 
+                                className="h-auto max-h-[80px] w-auto object-contain"
+                            />
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">
+                            30 Years of Uncompromising Security.
+                        </h2>
+                        <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto">
+                            As an exclusive Tier-1 partner, SolisSpark Energy provides a 30-year replacement warranty on all installations—guaranteeing your ROI is protected for a generation.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* SECTION 3: GLOBAL COMPONENT LEADERS (Bottom Marquee) */}
+            <section className="w-full relative z-20 overflow-hidden pb-8">
+                <div className="max-w-7xl mx-auto px-6 md:px-12 text-center mb-12">
+                    <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                        Built with the World&apos;s Most Advanced Technology.
+                    </h2>
+                    <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto font-medium">
+                        We partner exclusively with global Tier-1 manufacturers to ensure your solar asset delivers maximum yield in any environment.
+                    </p>
+                </div>
+                {/* Infinite Marquee - Right (Reverse) */}
+                <div className="relative flex overflow-x-hidden group">
+                    {/* Fade Edges */}
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0A192F] to-transparent z-10"></div>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0A192F] to-transparent z-10"></div>
+                    
+                    <div className="animate-marquee-reverse flex whitespace-nowrap items-center space-x-12 md:space-x-20 px-8 min-w-max">
+                        {/* duplicated arrays for seamless endless scroll */}
+                        {[
+                            "/adani-logo.png", "/anchor-logo.png", "/deye-logo.png", "/rayzon-logo.png", "/solis-logo.png", "/sungrow-logo.png", "/vikram-solar-logo.png", "/waaree-logo.png",
+                            "/adani-logo.png", "/anchor-logo.png", "/deye-logo.png", "/rayzon-logo.png", "/solis-logo.png", "/sungrow-logo.png", "/vikram-solar-logo.png", "/waaree-logo.png",
+                            "/adani-logo.png", "/anchor-logo.png", "/deye-logo.png", "/rayzon-logo.png", "/solis-logo.png", "/sungrow-logo.png", "/vikram-solar-logo.png", "/waaree-logo.png"
+                        ].map((logo, idx) => (
+                            <div key={idx} className="h-24 flex items-center justify-center p-4 bg-transparent w-40 md:w-56">
+                                <img 
+                                    src={logo} 
+                                    alt="Technology Partner" 
+                                    className="h-[50px] md:h-[70px] max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-500 cursor-pointer" 
+                                />
                             </div>
                         ))}
                     </div>
                 </div>
-            </motion.section>
+            </section>
         </div>
 
         {/* 5. NATIONAL ALIGNMENT SECTION */}
@@ -570,18 +651,23 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     
                     {/* Left Column (Image) */}
-                    <div className="relative w-full h-[400px] md:h-[600px] rounded-[2rem] overflow-hidden bg-white/5">
+                    <div className="relative w-full h-[300px] md:h-[500px] rounded-[2rem] overflow-hidden bg-white/5 flex items-center justify-center">
                         <AnimatePresence mode="wait">
-                            <motion.img 
+                            <motion.div 
                                 key={testIndex}
-                                src={testimonials[testIndex].img}
-                                alt={testimonials[testIndex].name}
                                 initial={{ opacity: 0, scale: 1.05 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className="absolute inset-0 w-full h-full object-cover rounded-[2rem]"
-                            />
+                                className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-[#112240] to-[#0A192F]"
+                            >
+                                {/* // TODO: Insert client photos here */}
+                                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-golden/20 border-4 border-golden flex items-center justify-center shadow-[0_0_30px_rgba(255,183,3,0.3)]">
+                                    <span className="text-4xl md:text-6xl font-black text-golden tracking-tighter">
+                                        {getInitials(testimonials[testIndex].name)}
+                                    </span>
+                                </div>
+                            </motion.div>
                         </AnimatePresence>
                     </div>
 

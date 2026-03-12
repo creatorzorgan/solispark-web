@@ -6,8 +6,8 @@ export default function Navbar() {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
-                "h-[72px] bg-white/40 backdrop-blur-xl border-b border-white/20"
+                "fixed top-0 left-0 right-0 w-full z-50 transition-colors duration-300",
+                "h-[72px] md:h-[90px] bg-white/40 backdrop-blur-xl border-b border-white/20"
             )}
         >
             <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
@@ -18,7 +18,7 @@ export default function Navbar() {
                     <img
                         src="/logo.png"
                         alt="SolisPark Energy"
-                        className="h-8 w-auto object-contain"
+                        className="w-40 sm:w-48 h-auto object-contain"
                     />
                 </Link>
 

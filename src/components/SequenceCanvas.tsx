@@ -12,17 +12,34 @@ export default function SequenceCanvas() {
 
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+    const [windowReady, setWindowReady] = useState(false);
+
+    useEffect(() => {
+        const handleResizeState = () => {
+            setIsMobile(window.innerWidth <= 767);
+        };
+        handleResizeState();
+        setWindowReady(true);
+        window.addEventListener("resize", handleResizeState);
+        return () => window.removeEventListener("resize", handleResizeState);
+    }, []);
 
     // Preload all 192 images
     useEffect(() => {
+        if (!windowReady) return;
+
+        setIsLoaded(false);
         const loadedImages: HTMLImageElement[] = [];
         let loadedCount = 0;
+
+        const folder = isMobile ? '/solar-panel-video-split-mobile' : '/sequence';
 
         // We render a small loading state until they are mostly loaded
         for (let i = 1; i <= 192; i++) {
             const img = new window.Image();
             const paddedIndex = i.toString().padStart(3, '0');
-            img.src = `/sequence/ffout${paddedIndex}.gif`;
+            img.src = `${folder}/ffout${paddedIndex}.gif`;
 
             img.onload = () => {
                 loadedCount++;
@@ -39,7 +56,7 @@ export default function SequenceCanvas() {
         }
 
         setImages(loadedImages);
-    }, []);
+    }, [isMobile, windowReady]);
 
     // Handle canvas resize
     useEffect(() => {
@@ -59,7 +76,7 @@ export default function SequenceCanvas() {
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, [smoothProgress, isLoaded]);
+    }, [smoothProgress, isLoaded, isMobile]);
 
     const drawFrame = (frameIndex: number) => {
         if (!canvasRef.current || images.length === 0) return;
@@ -79,13 +96,25 @@ export default function SequenceCanvas() {
             let offsetX = 0;
             let offsetY = 0;
 
-            // Cover logic so no gaps remain
-            if (canvasRatio > imgRatio) {
-                drawHeight = window.innerWidth / imgRatio;
-                offsetY = (window.innerHeight - drawHeight) / 2;
+            // Adaptive scaling logic based on breakpoint
+            if (isMobile) {
+                // Contain logic so the full vertical animation fits on mobile
+                if (canvasRatio > imgRatio) {
+                    drawWidth = window.innerHeight * imgRatio;
+                    offsetX = (window.innerWidth - drawWidth) / 2;
+                } else {
+                    drawHeight = window.innerWidth / imgRatio;
+                    offsetY = (window.innerHeight - drawHeight) / 2;
+                }
             } else {
-                drawWidth = window.innerHeight * imgRatio;
-                offsetX = (window.innerWidth - drawWidth) / 2;
+                // Cover logic so no gaps remain on desktop
+                if (canvasRatio > imgRatio) {
+                    drawHeight = window.innerWidth / imgRatio;
+                    offsetY = (window.innerHeight - drawHeight) / 2;
+                } else {
+                    drawWidth = window.innerHeight * imgRatio;
+                    offsetX = (window.innerWidth - drawWidth) / 2;
+                }
             }
 
             // Smooth interpolation for the scaling
