@@ -181,8 +181,12 @@ export default function About() {
             <section className="w-full bg-[#0A192F] text-[#FBFBFB] py-32 relative z-20">
                 <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative w-full h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden bg-gray-800">
-                        {/* Fixed Sunset Image */}
-                        <img src="/sun-energy-captured.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Solar sunset infrastructure" />
+                        {/* Utility-scale solar farm at sunset (Unsplash — reliable on Vercel) */}
+                        <img
+                            src="https://images.unsplash.com/photo-1613665813456-81a351c6dcb0?q=80&w=2000&auto=format&fit=crop"
+                            className="absolute inset-0 w-full h-full object-cover"
+                            alt="Utility-scale solar farm at sunset"
+                        />
                     </motion.div>
                     <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
                         <h2 className="text-4xl md:text-6xl font-bold leading-tight">
