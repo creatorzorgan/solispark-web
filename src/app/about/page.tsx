@@ -177,32 +177,7 @@ export default function About() {
                 </div>
             </section>
 
-            {/* SECTION 4: THE PROMISE (DARK SECTION) */}
-            <section className="w-full bg-[#0A192F] text-[#FBFBFB] py-32 relative z-20">
-                <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative w-full h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden bg-gray-800">
-                        {/* Utility-scale solar farm at sunset (Unsplash — reliable on Vercel) */}
-                        <img
-                            src="https://images.unsplash.com/photo-1613665813456-81a351c6dcb0?q=80&w=2000&auto=format&fit=crop"
-                            className="absolute inset-0 w-full h-full object-cover"
-                            alt="Utility-scale solar farm at sunset"
-                        />
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
-                        <h2 className="text-4xl md:text-6xl font-bold leading-tight">
-                            Your <span className="text-golden">Sovereign</span> Energy Asset.
-                        </h2>
-                        <p className="text-lg text-white/80 leading-relaxed font-medium">
-                            SolisPark Energy Pvt Ltd doesn't just build solar plants; we build financial moats. We are driven by a dynamic, obsessed team passionate about modern electrical technology. We blend heavy-duty engineering with start-up market speed to deliver turn-key EPC projects that actually perform.
-                        </p>
-                        <Link href="/contact" className="inline-flex items-center gap-3 mt-6 text-[#0A192F] bg-golden px-8 py-3 rounded-full font-bold hover:bg-[#E5A500] transition-colors">
-                            Initiate Mega-Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </Link>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* SECTION 5: CERTIFICATES OF EXCELLENCE */}
+            {/* SECTION 4: CERTIFICATES OF EXCELLENCE */}
             <section className="w-full bg-[#FAF9F6] py-32 relative z-10">
                 <div className="max-w-5xl mx-auto px-6 md:px-12">
                     <div className="text-center mb-20">
