@@ -2,13 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent, useSpring } from "framer-motion";
+import type { MotionValue } from "framer-motion";
 
-export default function SequenceCanvas() {
+type SequenceCanvasProps = {
+    /** Optional external scroll progress (0–1). If not provided, falls back to page scroll. */
+    progress?: MotionValue<number>;
+};
+
+export default function SequenceCanvas({ progress }: SequenceCanvasProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const { scrollYProgress } = useScroll(); // Tracks the entire page scroll by default
+    const { scrollYProgress } = useScroll(); // Fallback for pages that don't pass in a custom progress
+
+    // Determine which scroll progress to use (external 600vh track or full-page fallback)
+    const baseProgress = progress ?? scrollYProgress;
 
     // Apply physics-based momentum to the scroll progress
-    const smoothProgress = useSpring(scrollYProgress, { stiffness: 80, damping: 25 });
+    const smoothProgress = useSpring(baseProgress, { stiffness: 80, damping: 25 });
 
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -131,15 +140,20 @@ export default function SequenceCanvas() {
     });
 
     return (
-        <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#fbfbfb] flex justify-center items-center">
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-[#FAF9F6] flex justify-center items-center">
             <canvas
                 ref={canvasRef}
-                className="w-[90%] md:w-full h-full object-contain md:object-cover mx-auto"
-                style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.5s ease-in-out' }}
+                className="w-full h-full object-cover md:object-contain scale-110 md:scale-100"
+                style={{ 
+                    width: "100%",
+                    height: "100%",
+                    display: "block",
+                    objectPosition: "center center",
+                }}
             />
             {!isLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#fbfbfb]">
-                    <div className="text-navy/50 font-medium tracking-widest text-sm uppercase animate-pulse">
+                <div className="absolute inset-0 flex items-center justify-center bg-white">
+                    <div className="text-[#0A192F]/40 font-medium tracking-widest text-sm uppercase animate-pulse">
                         Initializing Sequences
                     </div>
                 </div>

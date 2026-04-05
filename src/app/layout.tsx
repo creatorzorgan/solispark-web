@@ -18,36 +18,176 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`${inter.variable} antialiased scroll-smooth`}>
-            <body className="min-h-screen font-sans bg-[#0A192F] text-[#FBFBFB]">
+            <body className="min-h-screen font-sans bg-[#FAF9F6] text-[#0A192F]">
                 <Navbar />
                 {children}
 
                 {/* FOOTER */}
-                <footer className="w-full bg-[#0A192F] text-white py-16 border-t border-white/10 relative z-20">
-                    <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="flex flex-col space-y-4">
-                            <span className="text-2xl font-bold tracking-tight">SolisPark Energy.</span>
-                            <span className="text-sm text-white/70 max-w-sm leading-relaxed">
-                                Building India's megawatt clean energy future from land acquisition to grid integration.
-                            </span>
+                <footer className="w-full bg-white text-[#0A192F] py-16 border-t border-gray-200 relative z-20 mt-16">
+                    <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+                        {/* Brand + Bio */}
+                        <div className="md:col-span-5 space-y-5">
+                            <div className="flex items-center gap-3">
+                                <img
+                                    src="/logo.png"
+                                    alt="SolisPark Energy"
+                                    className="h-10 w-auto object-contain"
+                                />
+                            </div>
+                            <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-md">
+                                SolisPark Energy engineers utility-scale and commercial solar assets from
+                                land acquisition to grid integration, helping India&apos;s enterprises own
+                                their energy infrastructure and slash operating overheads.
+                            </p>
                         </div>
-                        <div className="flex flex-col space-y-4">
-                            <h4 className="font-bold text-white uppercase tracking-widest text-sm mb-2 opacity-80">Contact Office</h4>
-                            <div className="text-sm text-white/80 space-y-3 font-medium">
-                                <p className="leading-relaxed">#244, F Block, 15th Main Road,<br/>Sahakarnagar, Bengaluru - 92</p>
-                                <p><a href="tel:+919886886122" className="hover:text-golden transition">+91 9886886122</a> <span className="text-white/30 mx-2">/</span> <a href="tel:+917760375599" className="hover:text-golden transition">7760375599</a></p>
-                                <p><a href="mailto:solisparkenergy@gmail.com" className="hover:text-golden transition border-b border-golden/30 pb-0.5">solisparkenergy@gmail.com</a></p>
+
+                        {/* Navigation */}
+                        <div className="md:col-span-4 flex flex-col md:items-center space-y-4">
+                            <h4 className="text-xs font-semibold tracking-[0.18em] text-gray-500 uppercase">
+                                Navigation
+                            </h4>
+                            <nav className="grid grid-cols-2 gap-x-10 gap-y-3 text-sm font-medium text-gray-700">
+                                <Link href="/" className="hover:text-golden transition-colors">
+                                    Home
+                                </Link>
+                                <Link href="/about" className="hover:text-golden transition-colors">
+                                    About
+                                </Link>
+                                <Link href="/services" className="hover:text-golden transition-colors">
+                                    Services
+                                </Link>
+                                <Link href="/portfolio" className="hover:text-golden transition-colors">
+                                    Portfolio
+                                </Link>
+                                <Link href="/faq" className="hover:text-golden transition-colors">
+                                    FAQ
+                                </Link>
+                                <Link href="/contact" className="hover:text-golden transition-colors">
+                                    Contact
+                                </Link>
+                            </nav>
+                        </div>
+
+                        {/* Contact + Socials */}
+                        <div className="md:col-span-3 space-y-5 md:text-right">
+                            <div className="space-y-2 text-sm text-gray-600">
+                                <p className="font-semibold text-gray-900">Corporate Office</p>
+                                <p className="leading-relaxed">
+                                    #244, F Block, 15th Main Road,
+                                    <br />
+                                    Sahakarnagar, Bengaluru - 92
+                                </p>
+                                <p>
+                                    <a
+                                        href="tel:+919886886122"
+                                        className="hover:text-golden transition-colors"
+                                    >
+                                        +91 9886886122
+                                    </a>
+                                    <span className="text-gray-400 mx-2">/</span>
+                                    <a
+                                        href="tel:+917760375599"
+                                        className="hover:text-golden transition-colors"
+                                    >
+                                        7760375599
+                                    </a>
+                                </p>
+                                <p>
+                                    <a
+                                        href="mailto:solisparkenergy@gmail.com"
+                                        className="hover:text-golden transition-colors"
+                                    >
+                                        solisparkenergy@gmail.com
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div className="flex md:justify-end gap-4 pt-3">
+                                {/* Instagram */}
+                                <a
+                                    href="https://instagram.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Instagram"
+                                    className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-golden hover:border-golden transition-colors"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <rect x="3" y="3" width="18" height="18" rx="4" ry="4" />
+                                        <circle cx="12" cy="12" r="3.5" />
+                                        <path d="M17.5 6.5h.01" />
+                                    </svg>
+                                </a>
+
+                                {/* WhatsApp */}
+                                <a
+                                    href="https://wa.me/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="WhatsApp"
+                                    className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-golden hover:border-golden transition-colors"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <path d="M3.5 20.5 5 16.1A8 8 0 1 1 8 19.5L3.5 20.5Z" />
+                                        <path d="M9 10.5c.2.9.9 1.6 1.8 2.2.7.5 1.3.8 2.1.8.6 0 .8-.1 1.2-.3.3-.2.5-.5.6-.8.1-.2 0-.4-.2-.5l-1.1-.5c-.2-.1-.4-.1-.6.1l-.3.3c-.1.1-.2.1-.4 0-.4-.2-.8-.5-1.2-.9-.3-.3-.6-.7-.8-1.1-.1-.1 0-.3.1-.4l.2-.3c.1-.2.1-.4 0-.6l-.5-1.1c-.1-.2-.3-.3-.5-.2-.4.1-.8.3-1 .6-.4.4-.6.9-.6 1.5 0 .3 0 .5.1.8Z" />
+                                    </svg>
+                                </a>
+
+                                {/* Email */}
+                                <a
+                                    href="mailto:solisparkenergy@gmail.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Email"
+                                    className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-golden hover:border-golden transition-colors"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                                        <polyline points="3 7 12 13 21 7" />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
-                        <div className="flex flex-col space-y-4 md:items-end">
-                            <h4 className="font-bold text-white uppercase tracking-widest text-sm mb-2 opacity-80 md:text-right">Corporate Info</h4>
-                            <div className="flex flex-col space-y-3 md:items-end text-sm text-white/70">
-                                <a href="/terms" className="hover:text-golden transition">Terms & Conditions</a>
-                                <a href="/terms" className="hover:text-golden transition">Privacy Policy</a>
-                            </div>
-                            <a href="/Company Profile.pdf" target="_blank" rel="noopener noreferrer" className="mt-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-6 py-3 rounded-lg transition-all font-semibold flex items-center gap-3 text-sm w-fit group">
-                                <span>Download Corporate Profile</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white/50 group-hover:text-golden transition-colors"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                    </div>
+
+                    <div className="max-w-7xl mx-auto px-6 md:px-12 mt-10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+                        <span>© {new Date().getFullYear()} SolisPark Energy. All rights reserved.</span>
+                        <div className="flex items-center gap-3">
+                            <a href="/terms" className="hover:text-golden transition-colors">
+                                Terms &amp; Conditions
+                            </a>
+                            <span className="w-px h-3 bg-gray-200" />
+                            <a href="/privacy" className="hover:text-golden transition-colors">
+                                Privacy Policy
                             </a>
                         </div>
                     </div>

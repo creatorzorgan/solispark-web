@@ -1,187 +1,253 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView, animate } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+
+// Custom component for the counting number animation
+// Updated component for the counting number animation (Mobile Optimized)
+function AnimatedCounter({ from = 0, to, duration = 2 }: { from?: number, to: number, duration?: number }) {
+    const ref = useRef<HTMLSpanElement>(null);
+    // Reduced margin to "0px" for mobile triggers and increased amount to 0.1
+    const inView = useInView(ref, { once: true, amount: 0.1 });
+
+    useEffect(() => {
+        if (inView && ref.current) {
+            const controls = animate(from, to, {
+                duration: duration,
+                delay: 0.2, // Tiny delay to ensure page transition is finished
+                ease: "easeOut",
+                onUpdate(value) {
+                    if (ref.current) {
+                        ref.current.textContent = Math.floor(value).toString();
+                    }
+                },
+            });
+            return () => controls.stop();
+        }
+    }, [inView, from, to, duration]);
+
+    return <span ref={ref}>{from}</span>;
+}
 
 export default function About() {
     const [expandedFounder, setExpandedFounder] = useState<number | null>(null);
 
+    const founders = [
+        { 
+            name: "Ranveer Dorai", 
+            title: "Director of Engineering", 
+            image: "/ranveer.jpg", 
+            note: "We don't do theoreticals. I build systems that work in the dirt, heat, and grid chaos. From integrating bleeding-edge PMSG tech to high-yield panel mapping, my job is to make sure your plant produces maximum power with zero friction. We build it once, and we build it right." 
+        },
+        { 
+            name: "Pruthvik Hariprasad", 
+            title: "Director of Strategy", 
+            image: "/pruthvik.jpg", 
+            note: "Energy is a financial play. I take the CapEx risk off your table and engineer deployment models that guarantee immediate operational savings. Whether it's a massive utility-scale farm or a premium residential setup, we're here to make you profitable from Day 1." 
+        }
+    ];
+
     return (
-        <main className="min-h-screen bg-[#0A192F] text-[#FBFBFB] overflow-hidden">
-            {/* SECTION 1: THE MISSION (Split Layout) */}
-            <section className="relative w-full min-h-screen flex items-center pt-32 pb-24 px-6 md:px-12">
-                <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    {/* Left: Image */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.8 }}
-                        className="relative w-full h-[50vh] md:h-[80vh] rounded-[2rem] overflow-hidden shadow-2xl"
-                    >
-                        <img 
-                            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200&auto=format&fit=crop" 
-                            alt="Utility Scale Solar Field" 
-                            className="absolute inset-0 w-full h-full object-cover"
-                        />
-                    </motion.div>
-                    
-                    {/* Right: Content */}
-                    <motion.div 
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="space-y-8"
-                    >
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
-                            Architects of India's <br/>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FBBF24] to-[#E5A500]">Energy Transformation.</span>
+        <main className="min-h-screen bg-[#FAF9F6] text-[#0A192F] overflow-hidden pt-24 md:pt-32">
+            
+            {/* SECTION 1: HERO & STATS */}
+            <section className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-6">
+                            <span className="text-[#0A192F]">We Build</span><br/>
+                            <span className="text-golden">Energy</span><br/>
+                            <span className="text-golden">Empires.</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-[#FBFBFB]/80 leading-relaxed font-medium">
-                            SolisPark Energy isn't just a provider; we are the infrastructure backbone for the next generation of Indian industry. Guided by veteran expertise, we engineer megawatt solutions that outlast and outperform.
-                        </p>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover" alt="Solar Panels" />
                     </motion.div>
                 </div>
-            </section>
 
-            {/* SECTION 2: THE EDGE (4-Block Icon Grid) */}
-            <section className="w-full bg-[#FAF9F6] text-[#111111] py-32 rounded-t-[3rem] relative z-20">
-                <div className="max-w-7xl mx-auto px-6 md:px-12">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="mb-20 text-center"
-                    >
-                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#0A192F]">
-                            The SolisPark Edge
-                        </h2>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            { step: "01", title: "Engineering Excellence", text: "Top-tier N-Type TOPCon tech ensuring maximum yield density per acre.", icon: <svg className="w-12 h-12 text-[#FFB703]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> },
-                            { step: "02", title: "Integrity", text: "Transparent EPC execution across all utility-scale infrastructure milestones.", icon: <svg className="w-12 h-12 text-[#FFB703]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg> },
-                            { step: "03", title: "Innovation", text: "Advanced O&M protocols and real-time digital tracking systems.", icon: <svg className="w-12 h-12 text-[#FFB703]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg> },
-                            { step: "04", title: "Social Impact", text: "An unyielding commitment to India's net-zero 2070 vision and clean sovereignty.", icon: <svg className="w-12 h-12 text-[#FFB703]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg> }
-                        ].map((item, idx) => (
-                            <motion.div 
-                                key={idx}
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                                className="bg-white p-10 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all border border-gray-100 flex flex-col group"
-                            >
-                                <div className="text-[#0A192F] mb-8 group-hover:text-golden transition-colors">
-                                    {item.icon}
-                                </div>
-                                <div className="text-xl font-black text-golden mb-2">{item.step}</div>
-                                <h3 className="text-2xl font-bold text-[#0A192F] mb-4">{item.title}</h3>
-                                <p className="text-base text-gray-600 font-medium leading-relaxed">
-                                    {item.text}
-                                </p>
-                            </motion.div>
-                        ))}
+                {/* Stats Row with Animated Counters */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 md:mt-24 border-t border-gray-200 pt-12 md:pt-16">
+                    <div>
+                        <h3 className="text-4xl md:text-5xl font-black text-golden mb-2">
+                            <AnimatedCounter to={25} />+
+                        </h3>
+                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Utility-Scale Projects</h4>
+                        <p className="text-gray-600 font-medium">Deployed fast. Built to last.</p>
                     </div>
+                    <div>
+                        <h3 className="text-4xl md:text-5xl font-black text-golden mb-2">
+                            <AnimatedCounter to={50} />+
+                        </h3>
+                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Industrial Partners</h4>
+                        <p className="text-gray-600 font-medium">Protecting their bottom line from grid inflation.</p>
+                    </div>
+                    <div>
+                        <h3 className="text-4xl md:text-5xl font-black text-golden mb-2">
+                            <AnimatedCounter to={10} />+
+                        </h3>
+                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Active Megawatt Sites</h4>
+                        <p className="text-gray-600 font-medium">Scaling India's clean energy grid, right now.</p>
+                    </div>
+                </motion.div>
+            </section>
+
+            {/* SECTION 2: ABOUT COMPANY */}
+            <section className="max-w-7xl mx-auto px-6 md:px-12 py-24 border-t border-gray-200">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+                        <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">The <span className="text-golden">Unfair Advantage.</span></h2>
+                        <p className="text-lg text-gray-700 leading-relaxed font-medium mb-6">
+                            Stop bleeding capital to the grid. Based in Bengaluru, SolisPark Energy Pvt Ltd engineers utility-scale solar farms and elite <strong>Residential</strong> rooftop arrays that turn dead space into high-yield assets. We execute EPC & BOOT models differently.
+                        </p>
+                        <p className="text-lg text-gray-700 leading-relaxed font-medium mb-8">
+                            No legacy corporate friction—just aggressive execution. Founded by two relentless directors combining B.Tech engineering reality with MBA financial strategy, we leverage bleeding-edge <strong>PMSG (Permanent Magnet Synchronous Generator)</strong> technology to maximize your output. We aren't just an energy provider; we are your strategic moat.
+                        </p>
+                        <div className="bg-[#0A192F] rounded-2xl p-6 md:p-8 shadow-xl inline-block">
+                            <p className="text-[#FBFBFB] font-medium text-lg md:text-xl">
+                                Stop guessing. Claim your <span className="text-golden font-bold">Free Site Visit</span> & <span className="text-golden font-bold">Consultation</span> today.
+                            </p>
+                            <Link href="/contact" className="inline-block mt-6 bg-golden text-[#0A192F] font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform">
+                                Lock In Your Audit
+                            </Link>
+                        </div>
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover" alt="Office Facility" />
+                    </motion.div>
                 </div>
             </section>
 
-            {/* SECTION 3: THE LEADERSHIP */}
-            <section className="w-full bg-[#0A192F] py-32 relative z-10">
+            {/* SECTION 3: MEET OUR FOUNDERS */}
+            <section className="w-full bg-white py-32 relative z-10 border-t border-gray-100">
                 <div className="max-w-7xl mx-auto px-6 md:px-12">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="text-center mb-24"
-                    >
-                        <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-[#FBFBFB]">
-                            The Architects<br/>of Transformation.
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-[#0A192F]">
+                            Meet <span className="text-golden">The Architects</span>
                         </h2>
-                    </motion.div>
+                    </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-                        {[
-                            { name: "Pruthvik Hariprasad", title: "Director · Strategist", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop", note: "The solar industry doesn't need more vendors; it needs strategists. By crossing MBA frameworks with B.Tech engineering reality, we've unlocked a deployment model that virtually eliminates Capex risk while guaranteeing decades of high-yield performance." },
-                            { name: "Ranveer Dorai", title: "Director · Innovator", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop", note: "True energy sovereignty isn't just about throwing panels on a roof. It's about millimeter-level technical precision. We integrate top-tier N-Type cells with advanced mounting structures to ensure our utility-scale arrays survive, adapt, and dominate the elements." }
-                        ].map((founder, idx) => (
+                        {founders.map((founder, idx) => (
                             <motion.div 
                                 key={idx}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, margin: "-50px" }}
+                                viewport={{ once: true }}
                                 transition={{ delay: idx * 0.1, duration: 0.8 }}
-                                className="bg-white/5 backdrop-blur-md rounded-[2.5rem] p-8 flex flex-col group transition-all border border-transparent hover:border-white/10"
+                                className="bg-[#FAF9F6] border border-gray-200 rounded-[2.5rem] p-8 flex flex-col items-center group transition-all hover:shadow-2xl"
                             >
-                                <div className="w-full h-[600px] rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.5)] mb-8 transition-transform duration-700">
-                                    <img src={founder.image} alt={founder.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 hover:scale-105" />
+                                {/* THE PILL SHAPE */}
+                                <div className="w-56 h-[320px] md:w-72 md:h-[400px] rounded-[4rem] overflow-hidden shadow-xl mb-8 border-4 border-white relative">
+                                    <Image src={founder.image} alt={founder.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                                 </div>
-                                <div className="text-center">
-                                    <h3 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight text-[#FBFBFB] group-hover:text-golden transition-colors">{founder.name}</h3>
-                                    <p className="text-white/60 font-bold tracking-widest uppercase text-sm mb-6">{founder.title}</p>
+                                
+                                <div className="text-center w-full">
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-2 text-[#0A192F]">{founder.name}</h3>
+                                    <p className="text-gray-500 font-bold tracking-widest uppercase text-xs mb-6">{founder.title}</p>
+                                    
                                     <button 
                                         onClick={() => setExpandedFounder(expandedFounder === idx ? null : idx)}
-                                        className="inline-flex items-center gap-2 border border-golden text-golden hover:bg-golden hover:text-[#0A192F] font-bold px-6 py-3 rounded-full transition-all tracking-wide text-sm"
+                                        className="inline-flex items-center gap-2 border-2 border-golden text-[#0A192F] hover:bg-golden font-bold px-6 py-3 rounded-full transition-all tracking-wide text-sm mb-4"
                                     >
                                         A Note from {founder.name.split(" ")[0]}
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${expandedFounder === idx ? 'rotate-180' : ''}`}><path d="m6 9 6 6 6-6"/></svg>
                                     </button>
+
+                                    <AnimatePresence>
+                                        {expandedFounder === idx && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: "auto" }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="overflow-hidden text-left mt-4"
+                                            >
+                                                <div className="text-6xl text-golden/30 font-serif leading-none mb-[-20px]">"</div>
+                                                <p className="text-base text-gray-700 leading-relaxed font-medium px-4 pb-4 italic">
+                                                    {founder.note}
+                                                </p>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </div>
-                                <AnimatePresence>
-                                    {expandedFounder === idx && (
-                                        <motion.div
-                                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                                            animate={{ opacity: 1, height: "auto", marginTop: 24 }}
-                                            exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                                            className="overflow-hidden text-center"
-                                        >
-                                            <p className="text-lg text-white/80 leading-relaxed font-medium px-4 pb-4">
-                                                "{founder.note}"
-                                            </p>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
                             </motion.div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 4: THE CERTIFICATION */}
-            <section className="w-full bg-[#0A192F] pb-32 relative z-10">
-                <div className="max-w-7xl mx-auto px-6 md:px-12">
-                    <motion.div 
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-10 md:p-16 flex flex-col lg:flex-row items-center gap-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                    >
-                        {/* Text Content */}
-                        <div className="flex-1 space-y-6">
-                            <h3 className="text-3xl md:text-5xl font-bold text-[#FBFBFB] tracking-tight leading-tight">
-                                Government Backed <br/>& Certified.
-                            </h3>
-                            <p className="text-lg md:text-xl text-white/70 leading-relaxed font-medium max-w-2xl">
-                                Recognized by the Ministry of New and Renewable Energy (India) for utility-scale deployment. We meet the highest national standards for infrastructure reliability, safety, and operational excellence.
-                            </p>
-                        </div>
-                        
-                        {/* Interactive Image Preview */}
-                        <div className="w-full lg:w-[400px] relative group cursor-pointer">
-                            <div className="absolute inset-0 bg-golden/20 rounded-2xl blur-xl group-hover:bg-golden/40 transition-all duration-500"></div>
-                            <div className="relative bg-white p-6 rounded-2xl shadow-2xl overflow-hidden border border-white/20 transform group-hover:-translate-y-2 transition-transform duration-500 flex items-center justify-center min-h-[200px]">
-                                <div className="absolute inset-0 bg-[#0A192F]/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
-                                    <span className="text-golden font-bold tracking-widest uppercase text-sm flex items-center gap-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                                        View Certificate
-                                    </span>
+            {/* SECTION 4: THE PROMISE (DARK SECTION) */}
+            <section className="w-full bg-[#0A192F] text-[#FBFBFB] py-32 relative z-20">
+                <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="relative w-full h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden bg-gray-800">
+                        {/* Fixed Sunset Image */}
+                        <img src="/sun-energy-captured.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Solar sunset infrastructure" />
+                    </motion.div>
+                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
+                        <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+                            Your <span className="text-golden">Sovereign</span> Energy Asset.
+                        </h2>
+                        <p className="text-lg text-white/80 leading-relaxed font-medium">
+                            SolisPark Energy Pvt Ltd doesn't just build solar plants; we build financial moats. We are driven by a dynamic, obsessed team passionate about modern electrical technology. We blend heavy-duty engineering with start-up market speed to deliver turn-key EPC projects that actually perform.
+                        </p>
+                        <Link href="/contact" className="inline-flex items-center gap-3 mt-6 text-[#0A192F] bg-golden px-8 py-3 rounded-full font-bold hover:bg-[#E5A500] transition-colors">
+                            Initiate Mega-Project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </Link>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* SECTION 5: CERTIFICATES OF EXCELLENCE */}
+            <section className="w-full bg-[#FAF9F6] py-32 relative z-10">
+                <div className="max-w-5xl mx-auto px-6 md:px-12">
+                    <div className="text-center mb-20">
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#0A192F] mb-6">Certified Excellence.</h2>
+                        <p className="text-lg text-gray-600 font-medium font-sans">Backed by the highest national authorities. We meet the strictest standards for infrastructure reliability, safety, and operational dominance.</p>
+                    </div>
+
+                    <div className="space-y-16">
+                        {/* Certificate 1 - MNRE */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2rem] shadow-lg border border-gray-100">
+                            <div className="order-2 md:order-1 flex justify-center">
+                                <div className="w-full max-w-[300px] aspect-square bg-white rounded-2xl flex items-center justify-center p-6 border border-gray-100 shadow-inner">
+                                    <img src="/mnre-logo.png" alt="MNRE Government of India Logo" className="w-full h-auto object-contain" />
                                 </div>
-                                <img src="/mnre-logo.png" alt="MNRE Certificate Preview" className="w-[80%] h-auto object-contain rounded opacity-100 transition-opacity" />
+                            </div>
+                            <div className="order-1 md:order-2">
+                                <h3 className="text-3xl font-bold text-[#0A192F] mb-4">MNRE Approval</h3>
+                                <p className="text-gray-600 font-medium leading-relaxed mb-6 font-sans">
+                                    Government-recognized certification validating our utility-scale products' elite quality and grid reliability. This confirms our adherence to the highest national standards.
+                                </p>
+                                <button className="bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-golden transition-colors">
+                                    View Certificate <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </button>
                             </div>
                         </div>
-                    </motion.div>
+
+                        {/* Certificate 2 - DPIIT */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2rem] shadow-lg border border-gray-100">
+                            <div>
+                                <h3 className="text-3xl font-bold text-[#0A192F] mb-4">DPIIT Recognition</h3>
+                                <p className="text-gray-600 font-medium leading-relaxed mb-6 font-sans">
+                                    Certified under the Start-up India initiative. This distinction underscores our aggressive, innovative approach to revolutionizing the renewable energy sector.
+                                </p>
+                                <a 
+                                    href="https://drive.google.com/file/d/14pRXMtJzXdgQfEjmje7dFNqiiGQpir68/view?usp=sharing" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold items-center gap-2 hover:bg-golden transition-colors"
+                                >
+                                    View Brochure <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </a>
+                            </div>
+                            <div className="flex justify-center">
+                                <div className="w-full max-w-[400px] aspect-[4/3] bg-white rounded-2xl flex items-center justify-center border border-gray-100 shadow-inner overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?q=80&w=800&auto=format&fit=crop" alt="Certification Document" className="w-full h-full object-cover opacity-80" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
