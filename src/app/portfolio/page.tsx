@@ -12,12 +12,11 @@ const DJI_IMAGES = [
 ];
 
 const YOUTUBE_VIDEOS = [
-    { id: 'P7R1n6KLg1I', index: 1 },
-    { id: 'ykxepfx6CAo', index: 2 },
-    { id: 'l5NkwhgPyIQ', index: 3 },
-    { id: 'Fy0mnh7XeFI', index: 4 },
-    { id: 'w5LhrZ6duko', index: 5 },
-    { id: '5ta92ZgaJ48', index: 6 },
+    { id: 'ykxepfx6CAo', index: 1 },
+    { id: 'l5NkwhgPyIQ', index: 2 },
+    { id: 'Fy0mnh7XeFI', index: 3 },
+    { id: 'w5LhrZ6duko', index: 4 },
+    { id: '5ta92ZgaJ48', index: 5 },
 ];
 
 const containerVariants = {
@@ -47,7 +46,7 @@ export default function Portfolio() {
                     className="text-center mb-24"
                 >
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-                        Megawatts <br/><span className="text-golden">In Motion.</span>
+                        Megawatts <br /><span className="text-golden">In Motion.</span>
                     </h1>
                     <p className="text-xl text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed">
                         Explore our elite portfolio of utility-scale assets and high-performance industrial installations across the nation.
@@ -55,7 +54,7 @@ export default function Portfolio() {
                 </motion.div>
 
                 {/* Featured Project Card */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="w-full bg-white border border-gray-200 rounded-[3rem] overflow-hidden mb-32 shadow-2xl group flex flex-col lg:flex-row items-center"
@@ -172,7 +171,7 @@ export default function Portfolio() {
                     <div className="relative flex justify-center items-center h-[500px] md:h-[650px]">
                         <div className="flex gap-8 overflow-x-auto pb-12 no-scrollbar px-12 cursor-grab active:cursor-grabbing snap-x">
                             {YOUTUBE_VIDEOS.map((video) => (
-                                <motion.div 
+                                <motion.div
                                     key={video.id}
                                     whileHover={{ y: -20 }}
                                     className="min-w-[280px] md:min-w-[380px] aspect-[9/16] bg-white/5 backdrop-blur-md rounded-[3rem] border border-white/10 overflow-hidden shadow-2xl relative snap-center group"
@@ -190,7 +189,7 @@ export default function Portfolio() {
                                         </p>
                                     </div>
                                     <div className="absolute bottom-10 left-10 z-10">
-                                        <p className="text-white font-bold text-2xl tracking-tight">Live Site <br/>Update</p>
+                                        <p className="text-white font-bold text-2xl tracking-tight">Live Site <br />Update</p>
                                     </div>
                                 </motion.div>
                             ))}
@@ -200,8 +199,8 @@ export default function Portfolio() {
 
                 {/* Final Button */}
                 <div className="text-center">
-                    <Link 
-                        href="/contact" 
+                    <Link
+                        href="/contact"
                         className="inline-block bg-golden hover:bg-[#E5A500] text-[#0A192F] font-bold px-12 py-6 rounded-2xl transition-all shadow-2xl hover:-translate-y-1 text-2xl"
                     >
                         Build Your Energy Moat
