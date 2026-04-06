@@ -31,6 +31,9 @@ export default function Home() {
     // Home FAQ accordion state
     const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0);
 
+    // Deployment Protocol State
+    const [activeProtocol, setActiveProtocol] = useState(0);
+
     // Helper function to extract initials for avatar placeholder
     const getInitials = (name: string) => {
         const parts = name.split(",")[0].trim().split(" ");
@@ -157,40 +160,13 @@ export default function Home() {
             {/* SLIDE OVER CONTAINER */}
             <div className="relative z-10 bg-[#FAF9F6] rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.06)] w-full overflow-hidden text-[#111111] mt-10">
                 <div className="relative z-50 w-full pt-24 pb-24 text-[#111111]">
-                    {/* FOUNDERS / ABOUT SECTION */}
-                    <section className="w-full py-24 md:py-32 relative z-20">
-                        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                            <div className="space-y-8">
-                                <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
-                                    Solar energy <br /> systems reduce <br /> <span className="text-gray-400">operational bleed</span> <br /> by over 40%.
-                                </motion.h2>
-                                <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
-                                    Solispark Energy is a premier utility-scale solar EPC and asset management firm. We specialize in transforming idle industrial assets into high-yield, megawatt-class power generation plants. Backed by industry veterans, we engineer solutions that outlast and outperform.
-                                </p>
-                                <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.8 }} className="flex items-center gap-6">
-                                    <div className="text-6xl md:text-8xl font-black tracking-tighter text-golden">10MW+</div>
-                                    <div className="text-sm font-bold uppercase tracking-widest text-gray-500 leading-snug">Successfully <br />Deployed <br />Capacity</div>
-                                </motion.div>
-                            </div>
-
-                            {/* SIDE-BY-SIDE FOUNDERS */}
-                            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full flex flex-row items-center justify-center gap-4 md:gap-6 h-[400px] md:h-[500px]">
-                                <div className="relative w-1/2 h-[90%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
-                                    <Image src="/pruthvik.jpg" alt="Pruthvik Hariprasad" fill className="object-cover" sizes="50vw" />
-                                </div>
-                                <div className="relative w-1/2 h-[90%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white mt-16">
-                                    <Image src="/ranveer.jpg" alt="Ranveer Dorai" fill className="object-cover" sizes="50vw" />
-                                </div>
-                            </motion.div>
-                        </div>
-                    </section>
-
                     {/* MARQUEES - LARGER LOGOS */}
                     <div className="relative w-full bg-white text-[#0A192F] pt-24 pb-24 flex flex-col gap-24">
                         <section className="w-full overflow-hidden">
                             <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-                                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Trusted by India&apos;s Infrastructure Pioneers.</h2>
+                                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Our Satisfied Clients</h2>
                             </div>
+
                             <div className="relative flex overflow-x-hidden group">
                                 <div className="animate-marquee flex whitespace-nowrap items-center space-x-12 md:space-x-20 px-8">
                                     {["/isro-logo.png", "/iisc-logo.png", "/gail-logo.png", "/tcs-log.png", "/reliance-logo.png", "/isro-logo.png", "/iisc-logo.png", "/gail-logo.png", "/tcs-log.png", "/reliance-logo.png"].map((logo, idx) => (
@@ -204,11 +180,12 @@ export default function Home() {
 
                         <section className="w-full overflow-hidden pb-8">
                             <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-                                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Built with the World&apos;s Advanced Tech.</h2>
+                                <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Partnering with the Best
+                                    "Our Trusted Brands"</h2>
                             </div>
                             <div className="relative flex overflow-x-hidden group">
                                 <div className="animate-marquee-reverse flex whitespace-nowrap items-center space-x-12 md:space-x-20 px-8">
-                                    {["/adani-logo.png", "/anchor-logo.png", "/rayzon-logo.png", "/solis-logo.png", "/sungrow-logo.png", "/waaree-logo.png", "/adani-logo.png", "/anchor-logo.png",].map((logo, idx) => (
+                                    {["/adani-logo.png", "/anchor-logo.png", "/rayzon-logo.png", "/solis-logo.png", "/sungrow-logo.png", "/waaree-logo.png", "/axitec-logo.png", "/goldi-solar-logo.png", "/deye-logo.png", "/adani-logo.png", "/anchor-logo.png", "/rayzon-logo.png", "/solis-logo.png", "/sungrow-logo.png", "/waaree-logo.png", "/axitec-logo.png", "/goldi-solar-logo.png", "/deye-logo.png"].map((logo, idx) => (
                                         <div key={idx} className="h-32 flex items-center justify-center w-48 md:w-64">
                                             <img src={logo} alt="Partner" className="h-[80px] md:h-[110px] max-w-full object-contain" />
                                         </div>
@@ -217,6 +194,115 @@ export default function Home() {
                             </div>
                         </section>
                     </div>
+
+                    {/* AXITEC USP BANNER (CLEAN SPLIT LAYOUT) */}
+                    <section className="w-full py-24 md:py-32 px-6 md:px-12 bg-[#0A192F]">
+                        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                            {/* Left Side: Text Content */}
+                            <div className="border-l-4 border-golden pl-8 md:pl-10 order-2 lg:order-1">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter mb-6 leading-tight">
+                                    The Industry's Only <br className="hidden md:block" /><span className="text-golden">30-Year Guarantee.</span>
+                                </h2>
+                                <p className="text-lg md:text-xl text-white/80 font-medium leading-relaxed">
+                                    As official partners of Axitec, Solispark secures your CAPEX investment with an exclusive 30-year replacement warranty. Tier-1 German engineering, guaranteed to outlast your operational timeline.
+                                </p>
+                            </div>
+
+                            {/* Right Side: Feature Image */}
+                            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 order-1 lg:order-2 bg-[#0A192F]">
+                                <Image
+                                    src="/usp-banner.png"
+                                    alt="Axitec 30-Year Warranty Security"
+                                    fill
+                                    className="object-contain object-center hover:scale-105 transition-transform duration-700"
+                                />
+                            </div>
+
+                        </div>
+                    </section>
+
+                    {/* THE DEPLOYMENT PROTOCOL (EXPANDING ACCORDION - TEXT ONLY) */}
+                    <section className="w-full py-32 px-6 md:px-12 bg-[#FAF9F6] overflow-hidden">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl md:text-6xl font-black text-[#0A192F] tracking-tighter uppercase italic mb-4">
+                                    The Deployment <span className="text-golden">Protocol.</span>
+                                </h2>
+                                <p className="text-lg md:text-xl text-gray-600 font-medium max-w-2xl mx-auto">
+                                    Zero operational downtime. We execute multi-megawatt projects while your factory floor keeps running.
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col md:flex-row w-full h-[800px] md:h-[500px] gap-4">
+                                {[
+                                    { num: "01", title: "Precision Audit", text: "Comprehensive site mapping and load analysis." },
+                                    { num: "02", title: "Heavy Engineering", text: "Custom PMSG integration and structural design." },
+                                    { num: "03", title: "Frictionless Build", text: "Rapid deployment with zero operational downtime." },
+                                    { num: "04", title: "Sovereign Asset", text: "Grid synchronization and 30-year active management." }
+                                ].map((step, index) => {
+                                    const isActive = activeProtocol === index;
+                                    return (
+                                        <motion.div
+                                            key={index}
+                                            layout
+                                            onClick={() => setActiveProtocol(index)}
+                                            animate={{ flex: isActive ? 5 : 1 }}
+                                            className={`relative rounded-[2rem] overflow-hidden cursor-pointer transition-colors duration-500 flex flex-col justify-end p-6 md:p-8 border border-gray-200/50 group ${isActive ? 'bg-[#0A192F] shadow-2xl' : 'bg-[#0A192F]/90 hover:bg-[#0A192F] opacity-90 hover:opacity-100'
+                                                }`}
+                                        >
+                                            <div className={`flex ${isActive ? 'flex-col md:flex-row md:items-end gap-4 md:gap-8' : 'flex-col items-center justify-end h-full gap-6'}`}>
+                                                {/* The Huge Step Number */}
+                                                <div className="flex items-center">
+                                                    <span className={`text-4xl md:text-6xl font-black transition-colors duration-300 ${isActive ? 'text-golden drop-shadow-lg' : 'text-white/30 group-hover:text-golden/50'}`}>
+                                                        {step.num}
+                                                    </span>
+                                                </div>
+
+                                                {/* Title & Description (Only shows when Active) */}
+                                                <AnimatePresence>
+                                                    {isActive && (
+                                                        <motion.div
+                                                            initial={{ opacity: 0, x: -20 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            exit={{ opacity: 0, x: -20 }}
+                                                            transition={{ duration: 0.3, delay: 0.1 }}
+                                                            className="flex flex-col pb-1"
+                                                        >
+                                                            <h3 className="text-2xl md:text-4xl font-bold text-white uppercase tracking-tight whitespace-nowrap mb-2">
+                                                                {step.title}
+                                                            </h3>
+                                                            <p className="text-white/80 font-medium md:text-lg max-w-sm leading-relaxed">
+                                                                {step.text}
+                                                            </p>
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+
+                                                {/* Vertical Title (Shows when Inactive on Desktop) */}
+                                                {!isActive && (
+                                                    <div className="hidden md:flex flex-1 items-end justify-center pb-12">
+                                                        <span className="text-white/50 font-bold uppercase tracking-[0.2em] whitespace-nowrap -rotate-90 origin-bottom pb-4">
+                                                            {step.title}
+                                                        </span>
+                                                    </div>
+                                                )}
+
+                                                {/* Horizontal Title (Shows when Inactive on Mobile) */}
+                                                {!isActive && (
+                                                    <div className="md:hidden flex w-full justify-center">
+                                                        <span className="text-white/50 font-bold uppercase tracking-widest whitespace-nowrap text-sm">
+                                                            {step.title}
+                                                        </span>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </section>
 
                     {/* NATIONAL ALIGNMENT */}
                     <section className="w-full bg-[#FAF9F6] py-32 px-6 md:px-12 flex flex-col md:flex-row gap-12 items-center">
@@ -285,11 +371,21 @@ export default function Home() {
                             <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100">
                                 <div className="space-y-6">
                                     <div>
-                                        <div className="flex justify-between items-center mb-4">
-                                            <label className="block text-sm font-bold text-[#0A192F] uppercase">Monthly Bill (INR)</label>
-                                            <span className="text-xl font-black text-golden tracking-tight">₹{bill.toLocaleString()}</span>
+                                        <div className="flex flex-col gap-4 mb-4">
+                                            <div className="flex justify-between items-center">
+                                                <label className="block text-sm font-bold text-[#0A192F] uppercase">Monthly Bill (INR)</label>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-xl font-black text-golden tracking-tight">₹</span>
+                                                    <input
+                                                        type="number"
+                                                        value={bill}
+                                                        onChange={(e) => setBill(Number(e.target.value))}
+                                                        className="w-32 p-2 rounded-lg border border-gray-200 text-lg font-black text-[#0A192F] focus:outline-none focus:ring-2 focus:ring-golden text-right"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <input type="range" min="1000" max="500000" step="1" value={bill} onChange={(e) => setBill(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-golden" />
                                         </div>
-                                        <input type="range" min="1000" max="500000" step="1000" value={bill} onChange={(e) => setBill(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-golden" />
                                     </div>
                                     <div className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-100">
                                         <div>
@@ -312,6 +408,34 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    {/* FOUNDERS / ABOUT SECTION */}
+                    <section className="w-full py-24 md:py-32 relative z-20">
+                        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                            <div className="space-y-8">
+                                <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+                                    Solar energy <br /> systems reduce <br /> <span className="text-gray-400">operational bleed</span> <br /> by over 40%.
+                                </motion.h2>
+                                <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
+                                    Solispark Energy is a premier utility-scale solar EPC and asset management firm. We specialize in transforming idle industrial assets into high-yield, megawatt-class power generation plants. Backed by industry veterans, we engineer solutions that outlast and outperform.
+                                </p>
+                                <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.8 }} className="flex items-center gap-6">
+                                    <div className="text-6xl md:text-8xl font-black tracking-tighter text-golden">10MW+</div>
+                                    <div className="text-sm font-bold uppercase tracking-widest text-gray-500 leading-snug">Successfully <br />Deployed <br />Capacity</div>
+                                </motion.div>
+                            </div>
+
+                            {/* SIDE-BY-SIDE FOUNDERS */}
+                            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full flex flex-row items-center justify-center gap-4 md:gap-6 h-[400px] md:h-[500px]">
+                                <div className="relative w-1/2 h-[90%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                                    <Image src="/pruthvik.jpg" alt="Pruthvik Hariprasad" fill className="object-cover" sizes="50vw" />
+                                </div>
+                                <div className="relative w-1/2 h-[90%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white mt-16">
+                                    <Image src="/ranveer.jpg" alt="Ranveer Dorai" fill className="object-cover" sizes="50vw" />
+                                </div>
+                            </motion.div>
                         </div>
                     </section>
 
