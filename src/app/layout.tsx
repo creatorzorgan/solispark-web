@@ -7,7 +7,7 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-    title: "SolisPark Energy | Utility-Scale Solar Infrastructure",
+    title: "Solispark Energy | Utility-Scale Solar Infrastructure",
     description: "End-to-end solar infrastructure development. From land acquisition to grid integration, we build India's megawatt clean energy future.",
 };
 
@@ -30,12 +30,12 @@ export default function RootLayout({
                             <div className="flex items-center gap-3">
                                 <img
                                     src="/logo.png"
-                                    alt="SolisPark Energy"
+                                    alt="Solispark Energy"
                                     className="h-10 w-auto object-contain"
                                 />
                             </div>
                             <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-md">
-                                SolisPark Energy engineers utility-scale and commercial solar assets from
+                                Solispark Energy engineers utility-scale and commercial solar assets from
                                 land acquisition to grid integration, helping India&apos;s enterprises own
                                 their energy infrastructure and slash operating overheads.
                             </p>
@@ -180,7 +180,7 @@ export default function RootLayout({
                     </div>
 
                     <div className="max-w-7xl mx-auto px-6 md:px-12 mt-10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-                        <span>© {new Date().getFullYear()} SolisPark Energy. All rights reserved.</span>
+                        <span>© {new Date().getFullYear()} Solispark Energy. All rights reserved.</span>
                         <div className="flex items-center gap-3">
                             <a href="/terms" className="hover:text-golden transition-colors">
                                 Terms &amp; Conditions

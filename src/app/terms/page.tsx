@@ -8,14 +8,14 @@ export default function Terms() {
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4">1. Scope of Services</h2>
                         <p>
-                            SolisPark Energy ("SolisPark", "We", "Our", "Us") acts as an extensive EPC contractor and lifecycle manager for utility and commercial scale solar infrastructure. The provision of our services, including land acquisition, grid integration, and sustained maintenance, is strictly governed by individually signed Power Purchase Agreements (PPAs) or direct EPC contracts.
+                            Solispark Energy ("Solispark", "We", "Our", "Us") acts as an extensive EPC contractor and lifecycle manager for utility and commercial scale solar infrastructure. The provision of our services, including land acquisition, grid integration, and sustained maintenance, is strictly governed by individually signed Power Purchase Agreements (PPAs) or direct EPC contracts.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4">2. Financial Structures</h2>
                         <p className="mb-4">
-                            <strong>2.1 BOOT / OPEX Model:</strong> Under the Zero-CapEx BOOT framework, SolisPark retains 100% legal ownership of the physical asset while it is deployed on the client's premises, until explicitly transferred at the end of the contracted term. The client is legally obligated to procure the generated energy at the agreed-upon flat tariff.
+                            <strong>2.1 BOOT / OPEX Model:</strong> Under the Zero-CapEx BOOT framework, Solispark retains 100% legal ownership of the physical asset while it is deployed on the client's premises, until explicitly transferred at the end of the contracted term. The client is legally obligated to procure the generated energy at the agreed-upon flat tariff.
                         </p>
                         <p>
                             <strong>2.2 CAPEX Model:</strong> In the event of direct procurement, total asset ownership vests with the client upon complete realization of final milestone payments. Accelerated depreciation benefits are the sole responsibility of the client's accounting framework.
@@ -25,7 +25,7 @@ export default function Terms() {
                     <section>
                         <h2 className="text-2xl font-bold text-white mb-4">3. Warranties and Limitation of Liability</h2>
                         <p>
-                            We warrant the structural and technical execution of our projects for industry-standard defect periods. However, the core 30-year replacement warranty on N-Type TOPCon cells and associated inverters flows directly from our Tier-1 Original Equipment Manufacturers (OEMs), specifically Axitec and Sungrow. SolisPark acts as a facilitator and does not directly assume the balance sheet liability for OEM hardware defects outside standard clauses.
+                            We warrant the structural and technical execution of our projects for industry-standard defect periods. However, the core 30-year replacement warranty on N-Type TOPCon cells and associated inverters flows directly from our Tier-1 Original Equipment Manufacturers (OEMs), specifically Axitec and Sungrow. Solispark acts as a facilitator and does not directly assume the balance sheet liability for OEM hardware defects outside standard clauses.
                         </p>
                     </section>
                     

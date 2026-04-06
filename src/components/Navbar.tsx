@@ -23,7 +23,7 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
                     <img
                         src="/logo.png"
-                        alt="SolisPark Energy"
+                        alt="Solispark Energy"
                         className="w-40 sm:w-48 h-auto object-contain"
                     />
                 </Link>

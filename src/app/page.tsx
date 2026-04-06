@@ -23,7 +23,7 @@ export default function Home() {
     // Testimonial State
     const [testIndex, setTestIndex] = useState(0);
     const testimonials = [
-        { name: "Rajat M., Facility Director", quote: "Switching to SolisPark's OPEX model was the best financial decision for our manufacturing unit. Day-one savings and zero operational disruption." },
+        { name: "Rajat M., Facility Director", quote: "Switching to Solispark's OPEX model was the best financial decision for our manufacturing unit. Day-one savings and zero operational disruption." },
         { name: "Priya S., Operations Head", quote: "Their utility-scale EPC execution is flawless. Our 5MW plant was synchronized to the grid weeks ahead of schedule." },
         { name: "Anil K., Plant Manager", quote: "The 30-year Axitec warranty and tier-1 bifacial panels give us complete peace of mind for our heavy-duty energy needs." }
     ];
@@ -165,7 +165,7 @@ export default function Home() {
                                     Solar energy <br /> systems reduce <br /> <span className="text-gray-400">operational bleed</span> <br /> by over 40%.
                                 </motion.h2>
                                 <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
-                                    SolisPark Energy is a premier utility-scale solar EPC and asset management firm. We specialize in transforming idle industrial assets into high-yield, megawatt-class power generation plants. Backed by industry veterans, we engineer solutions that outlast and outperform.
+                                    Solispark Energy is a premier utility-scale solar EPC and asset management firm. We specialize in transforming idle industrial assets into high-yield, megawatt-class power generation plants. Backed by industry veterans, we engineer solutions that outlast and outperform.
                                 </p>
                                 <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.8 }} className="flex items-center gap-6">
                                     <div className="text-6xl md:text-8xl font-black tracking-tighter text-golden">10MW+</div>
@@ -285,8 +285,11 @@ export default function Home() {
                             <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100">
                                 <div className="space-y-6">
                                     <div>
-                                        <label className="block text-sm font-bold text-[#0A192F] uppercase mb-2">Monthly Bill (INR)</label>
-                                        <input type="number" value={bill} onChange={(e) => setBill(Number(e.target.value))} className="w-full p-4 rounded-xl border border-gray-200 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-golden" />
+                                        <div className="flex justify-between items-center mb-4">
+                                            <label className="block text-sm font-bold text-[#0A192F] uppercase">Monthly Bill (INR)</label>
+                                            <span className="text-xl font-black text-golden tracking-tight">₹{bill.toLocaleString()}</span>
+                                        </div>
+                                        <input type="range" min="1000" max="500000" step="1000" value={bill} onChange={(e) => setBill(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-golden" />
                                     </div>
                                     <div className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-100">
                                         <div>
@@ -421,7 +424,7 @@ export default function Home() {
                                                 <p className="text-white font-black text-2xl leading-none mb-2 tracking-tight">Industrial <br /> Commissioning</p>
                                                 <p className="text-xs font-bold text-golden uppercase tracking-widest flex items-center gap-2">
                                                     <span className="w-2 h-2 bg-golden rounded-full animate-pulse"></span>
-                                                    Verified SolisPark Asset
+                                                    Verified Solispark Asset
                                                 </p>
                                             </div>
                                         </motion.div>

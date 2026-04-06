@@ -18,7 +18,7 @@ const serviceData = [
         title: "OPEX",
         headline: "Solar as a Service. Zero Capital Risk.",
         sub: "Immediate operational savings without touching your working capital.",
-        p1: "We fund it. We build it. We maintain it. You simply pay for the discounted electricity it generates. Through our elite PPA models, SolisPark absorbs 100% of the CapEx and operational risk.",
+        p1: "We fund it. We build it. We maintain it. You simply pay for the discounted electricity it generates. Through our elite PPA models, Solispark absorbs 100% of the CapEx and operational risk.",
         p2: "Transform a massive overhead into a predictable, reduced expense. Enjoy immediate cash-flow positivity. At the end of the term, the multi-crore asset transfers to your balance sheet for free."
     },
     {

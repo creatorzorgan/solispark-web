@@ -17,7 +17,7 @@ export default function FAQPage() {
         },
         {
             question: "What is the 'catch' with the OPEX / BOOT model?",
-            answer: "There is none. It is a pure performance partnership. SolisPark takes 100% of the CAPEX risk on our balance sheet. We monetize our layout over the long term, while you instantly decarbonize your footprint and secure power at a drastically discounted, flat tariff rate without spending a single rupee upfront."
+            answer: "There is none. It is a pure performance partnership. Solispark takes 100% of the CAPEX risk on our balance sheet. We monetize our layout over the long term, while you instantly decarbonize your footprint and secure power at a drastically discounted, flat tariff rate without spending a single rupee upfront."
         },
         {
              question: "Do you handle MNRE and DISCOM approvals?",

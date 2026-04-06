@@ -99,7 +99,7 @@ export default function About() {
                     <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                         <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tight">The <span className="text-golden">Unfair Advantage.</span></h2>
                         <p className="text-lg text-gray-700 leading-relaxed font-medium mb-6">
-                            Stop bleeding capital to the grid. Based in Bengaluru, SolisPark Energy Pvt Ltd engineers utility-scale solar farms and elite <strong>Residential</strong> rooftop arrays that turn dead space into high-yield assets. We execute EPC & BOOT models differently.
+                            Stop bleeding capital to the grid. Based in Bengaluru, Solispark Energy Pvt Ltd engineers utility-scale solar farms and elite <strong>Residential</strong> rooftop arrays that turn dead space into high-yield assets. We execute EPC & BOOT models differently.
                         </p>
                         <p className="text-lg text-gray-700 leading-relaxed font-medium mb-8">
                             No legacy corporate friction—just aggressive execution. Founded by two relentless directors combining B.Tech engineering reality with MBA financial strategy, we leverage bleeding-edge <strong>PMSG (Permanent Magnet Synchronous Generator)</strong> technology to maximize your output. We aren't just an energy provider; we are your strategic moat.
