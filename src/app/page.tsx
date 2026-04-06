@@ -303,6 +303,10 @@ export default function Home() {
                             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
                                 {/* Left Side: High-End Visual Placeholder */}
                                 <div className="lg:col-span-2 relative aspect-square md:aspect-auto md:h-[600px] rounded-[3rem] overflow-hidden bg-[#FAF9F6] border border-gray-100 shadow-2xl">
+                                    <div className="absolute top-6 right-6 bg-[#0A192F]/80 backdrop-blur-md border border-white/10 text-golden text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full shadow-2xl z-50">
+                                        <span className="animate-pulse bg-golden w-1.5 h-1.5 rounded-full inline-block mr-2"></span>
+                                        CLIENT LOGS IN DEPLOYMENT
+                                    </div>
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={testIndex}
@@ -375,6 +379,10 @@ export default function Home() {
                             </div>
 
                             <div className="relative flex justify-center items-center h-[500px] md:h-[650px]">
+                                <div className="absolute top-8 right-8 z-50 bg-white/10 backdrop-blur-xl border border-white/20 text-golden text-xs font-black uppercase tracking-[0.3em] px-6 py-3 rounded-full shadow-[0_0_30px_rgba(251,191,36,0.2)] flex items-center gap-3">
+                                    <span className="animate-pulse bg-golden w-1.5 h-1.5 rounded-full inline-block"></span>
+                                    LIVE TRANSMISSIONS PENDING
+                                </div>
                                 <div className="flex gap-8 overflow-x-auto pb-12 no-scrollbar px-12 cursor-grab active:cursor-grabbing snap-x">
                                     {[1, 2, 3, 4, 5].map((item) => (
                                         <motion.div 
