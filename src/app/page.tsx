@@ -11,10 +11,13 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const [progress, setProgress] = useState(0);
 
-    // Calculator State
+    // Calculator State (Dynamic Logic)
     const [bill, setBill] = useState(2500);
-    const [load, setLoad] = useState(3);
-    const energyGenerated = load * 1440;
+
+    // Derived Calculations based on an approx ₹8/unit tariff and 120 units/kW monthly generation
+    const estimatedUnitsConsumed = bill / 8;
+    const requiredKw = Math.max(1, Math.ceil(estimatedUnitsConsumed / 120));
+    const energyGenerated = requiredKw * 1440; // Annual generation
     const carbonEmission = Math.round(energyGenerated * 0.82);
 
     // Testimonial State
@@ -66,7 +69,7 @@ export default function Home() {
             {/* PRELOADER */}
             <AnimatePresence>
                 {loading && (
-                    <motion.div 
+                    <motion.div
                         initial={{ opacity: 1 }}
                         exit={{ opacity: 0, y: "-100%" }}
                         transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
@@ -76,7 +79,7 @@ export default function Home() {
                             {progress}%
                         </div>
                         <div className="w-64 h-1 bg-white/10 rounded-full mt-4 overflow-hidden">
-                            <motion.div 
+                            <motion.div
                                 className="h-full bg-golden"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${progress}%` }}
@@ -90,7 +93,7 @@ export default function Home() {
             <main className="relative bg-transparent">
                 <div ref={containerRef} className="relative h-[800vh] w-full bg-transparent">
                     <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#FAF9F6]">
-                        
+
                         {/* Bottom layer: 3D sequence canvas */}
                         <div className="absolute inset-0 z-0">
                             <SequenceCanvas progress={scrollYProgress} />
@@ -112,7 +115,7 @@ export default function Home() {
                                 </div>
                             </div>
                             <div className="hidden md:block">
-                                <p className="text-[#0A192F] font-bold text-sm tracking-widest uppercase">System <br/> <span className="text-golden">Optimization</span></p>
+                                <p className="text-[#0A192F] font-bold text-sm tracking-widest uppercase">System <br /> <span className="text-golden">Optimization</span></p>
                             </div>
                         </div>
 
@@ -232,17 +235,24 @@ export default function Home() {
                             <h2 className="text-4xl md:text-7xl font-bold text-center mb-20 text-[#0A192F]">Scale Your Energy. <span className="text-golden">Slash Overhead.</span></h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
                                 {[
-                                    { title: "CAPEX", text: "Zero-Friction Ownership. Capture 100% tax depreciation and decades of free power.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> },
-                                    { title: "OPEX", text: "Power Without the Price Tag. We fund it; you just pay for discounted electricity.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> },
-                                    { title: "Residential", text: "Premium rooftop arrays that turn homes into high-yield energy assets.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
-                                    { title: "PMSG Tech", text: "Integrating specialized Permanent Magnet tech for maximum generation yield.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22v-4M7 8v2M17 8v2M7 14v2M17 14v2M12 2v4M2 12h4M18 12h4"/></svg> }
+                                    { title: "CAPEX", text: "Zero-Friction Ownership. Capture 100% tax depreciation and decades of free power.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v20" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg> },
+                                    { title: "OPEX", text: "Power Without the Price Tag. We fund it; you just pay for discounted electricity.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2" /></svg> },
+                                    { title: "Residential", text: "Premium rooftop arrays that turn homes into high-yield energy assets.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg> },
+                                    { title: "PMSG Tech", text: "Integrating specialized Permanent Magnet tech for maximum generation yield.", icon: <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22v-4M7 8v2M17 8v2M7 14v2M17 14v2M12 2v4M2 12h4M18 12h4" /></svg> }
                                 ].map((card, idx) => (
-                                    <div key={idx} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-lg hover:shadow-2xl transition-all">
+                                    <div key={idx} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-lg hover:shadow-2xl transition-all flex flex-col">
                                         <div className="w-14 h-14 mb-8 text-[#0A192F]">{card.icon}</div>
                                         <h3 className="text-2xl font-bold mb-4 text-[#0A192F]">{card.title}</h3>
-                                        <p className="text-gray-600 font-medium">{card.text}</p>
+                                        <p className="text-gray-600 font-medium mb-6 flex-grow">{card.text}</p>
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* NEW CTA UNDER SERVICES */}
+                            <div className="mt-16 text-center">
+                                <Link href="/contact" className="inline-flex items-center gap-3 bg-[#0A192F] text-white font-bold px-10 py-5 rounded-full hover:bg-golden hover:text-[#0A192F] transition-colors shadow-xl">
+                                    Discuss Your Infrastructure <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                </Link>
                             </div>
                         </div>
                     </section>
@@ -269,14 +279,14 @@ export default function Home() {
                     <section className="w-full bg-[#FAF9F6] py-32 px-6 md:px-12">
                         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-8">
-                                <h2 className="text-5xl md:text-7xl font-bold text-[#0A192F]">Compute <br/><span className="text-golden">solar</span> savings.</h2>
+                                <h2 className="text-5xl md:text-7xl font-bold text-[#0A192F]">Compute <br /><span className="text-golden">solar</span> savings.</h2>
                                 <p className="text-lg md:text-xl text-gray-600 font-medium">Estimate your monthly yield instantly with our industrial-grade calculator.</p>
                             </div>
                             <div className="bg-white p-8 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100">
                                 <div className="space-y-6">
                                     <div>
                                         <label className="block text-sm font-bold text-[#0A192F] uppercase mb-2">Monthly Bill (INR)</label>
-                                        <input type="number" value={bill} onChange={(e) => setBill(Number(e.target.value))} className="w-full p-4 rounded-xl border border-gray-200 text-xl font-bold" />
+                                        <input type="number" value={bill} onChange={(e) => setBill(Number(e.target.value))} className="w-full p-4 rounded-xl border border-gray-200 text-xl font-bold focus:outline-none focus:ring-2 focus:ring-golden" />
                                     </div>
                                     <div className="grid grid-cols-2 gap-8 pt-8 border-t border-gray-100">
                                         <div>
@@ -287,6 +297,15 @@ export default function Home() {
                                             <p className="text-xs font-bold text-gray-400 uppercase mb-1">CO2 Offset</p>
                                             <p className="text-3xl font-black text-golden">{carbonEmission.toLocaleString()} <span className="text-sm">KG</span></p>
                                         </div>
+                                    </div>
+
+                                    {/* NEW CTA INSIDE CALCULATOR */}
+                                    <div className="pt-8 mt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-4 items-center justify-between">
+                                        <p className="text-sm font-bold text-[#0A192F] uppercase tracking-widest">Stop Paying The Grid</p>
+                                        <Link href="/contact" className="bg-[#0A192F] text-white font-bold px-6 py-3 rounded-xl hover:bg-golden hover:text-[#0A192F] transition-colors flex items-center gap-2 shadow-lg">
+                                            Claim This ROI
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -299,7 +318,7 @@ export default function Home() {
                             <h2 className="text-4xl md:text-7xl font-black mb-16 text-[#0A192F] tracking-tighter uppercase italic">
                                 The <span className="text-golden">Verdict.</span>
                             </h2>
-                            
+
                             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
                                 {/* Left Side: High-End Visual Placeholder */}
                                 <div className="lg:col-span-2 relative aspect-square md:aspect-auto md:h-[600px] rounded-[3rem] overflow-hidden bg-[#FAF9F6] border border-gray-100 shadow-2xl">
@@ -344,7 +363,7 @@ export default function Home() {
                                                 <p className="text-2xl font-black text-[#0A192F] uppercase tracking-tight">{testimonials[testIndex].name}</p>
                                                 <div className="flex gap-1 mt-3">
                                                     {[...Array(5)].map((_, i) => (
-                                                        <svg key={i} width="22" height="22" fill="#FBBF24" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                                        <svg key={i} width="22" height="22" fill="#FBBF24" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                                                     ))}
                                                 </div>
                                             </div>
@@ -353,10 +372,10 @@ export default function Home() {
 
                                     <div className="flex gap-6 pt-8">
                                         <button onClick={() => setTestIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))} className="w-16 h-16 rounded-full border-2 border-gray-100 flex items-center justify-center hover:bg-golden hover:border-golden transition-all group active:scale-95">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:text-[#0A192F]"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:text-[#0A192F]"><path d="M19 12H5" /><path d="m12 19-7-7 7-7" /></svg>
                                         </button>
                                         <button onClick={() => setTestIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))} className="w-16 h-16 rounded-full border-2 border-gray-100 flex items-center justify-center hover:bg-golden hover:border-golden transition-all group active:scale-95">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:text-[#0A192F]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="group-hover:text-[#0A192F]"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                                         </button>
                                     </div>
                                 </div>
@@ -367,7 +386,7 @@ export default function Home() {
                     {/* 11. THE PROOF (3D Draggable Video Carousel) */}
                     <section className="w-full py-32 bg-[#0A192F] text-white overflow-hidden relative border-t border-white/5">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-golden/10 blur-[120px] rounded-full pointer-events-none"></div>
-                        
+
                         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
                             <div className="text-center mb-20">
                                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-4 italic">
@@ -385,21 +404,21 @@ export default function Home() {
                                 </div>
                                 <div className="flex gap-8 overflow-x-auto pb-12 no-scrollbar px-12 cursor-grab active:cursor-grabbing snap-x">
                                     {[1, 2, 3, 4, 5].map((item) => (
-                                        <motion.div 
+                                        <motion.div
                                             key={item}
                                             whileHover={{ y: -20, scale: 1.02 }}
                                             className="min-w-[280px] md:min-w-[380px] aspect-[9/16] bg-white/5 backdrop-blur-md rounded-[3rem] border border-white/10 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.5)] relative snap-center group"
                                         >
                                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                                 <div className="w-20 h-20 rounded-full bg-golden/20 flex items-center justify-center border border-golden/50 group-hover:bg-golden/40 transition-all duration-500">
-                                                    <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24" className="text-golden ml-1"><path d="M8 5v14l11-7z"/></svg>
+                                                    <svg width="40" height="40" fill="currentColor" viewBox="0 0 24 24" className="text-golden ml-1"><path d="M8 5v14l11-7z" /></svg>
                                                 </div>
                                                 <p className="mt-8 font-black tracking-[0.3em] text-[10px] text-golden uppercase">Site Log 0{item}</p>
                                             </div>
-                                            
+
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
                                             <div className="absolute bottom-10 left-10 right-10">
-                                                <p className="text-white font-black text-2xl leading-none mb-2 tracking-tight">Industrial <br/> Commissioning</p>
+                                                <p className="text-white font-black text-2xl leading-none mb-2 tracking-tight">Industrial <br /> Commissioning</p>
                                                 <p className="text-xs font-bold text-golden uppercase tracking-widest flex items-center gap-2">
                                                     <span className="w-2 h-2 bg-golden rounded-full animate-pulse"></span>
                                                     Verified SolisPark Asset
@@ -412,7 +431,7 @@ export default function Home() {
 
                             <div className="flex flex-col items-center gap-4 mt-8">
                                 <div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden relative">
-                                    <motion.div 
+                                    <motion.div
                                         className="h-full bg-golden shadow-[0_0_15px_#FBBF24]"
                                         animate={{ x: [-96, 96] }}
                                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -424,7 +443,7 @@ export default function Home() {
                         </div>
                     </section>
 
-                    </div>
+                </div>
             </div>
         </div>
     );
