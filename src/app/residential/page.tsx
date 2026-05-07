@@ -25,7 +25,7 @@ const STEPS = [
     {
         icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
         title: "Solar On. Bills Drop. We Maintain.",
-        text: "Your system goes live and bills fall from month one. SolisShield™ covers performance, cleaning, and monitoring for 30 years.",
+        text: "Your system goes live and bills fall from month one. Solispark covers performance, cleaning, and monitoring for 30 years.",
     },
 ];
 
@@ -58,22 +58,22 @@ export default function ResidentialPage() {
 
                             <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.16, ease: EASE }}
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl">
-                                Up to <strong className="text-white">₹78,000 government subsidy</strong> handled end-to-end. Bills drop from month one. Backed by the SolisShield™ 30-year guarantee.
+                                Up to <strong className="text-white">₹78,000 government subsidy</strong> handled end-to-end. Bills drop from month one. Backed by the Solispark 30-year guarantee.
                             </motion.p>
 
                             {/* Family photo */}
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
                                 className="relative w-full aspect-[3/4] sm:aspect-[5/3] rounded-[1.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] bg-gradient-to-br from-[#FFB703] via-[#E5A500] to-[#0A192F]">
                                 <picture>
-                                    <source media="(min-width: 640px)" srcSet="/family-rooftop-landscape.jpg" />
-                                    <img src="/family-rooftop.jpg" alt="Indian family with rooftop solar" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+                                    <source media="(min-width: 640px)" srcSet="/dji-image-1.jpg" />
+                                    <img src="/dji-image-1.jpg" alt="Residential solar rooftop installation" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
                                 </picture>
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/30 via-transparent to-transparent pointer-events-none" />
                             </motion.div>
 
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7, delay: 0.36 }}
                                 className="flex flex-wrap items-center gap-x-5 gap-y-2.5 text-white/55">
-                                {["MNRE Approved Vendor", "PM Surya Ghar Partner", "SolisShield™ 30-Year Guarantee"].map((t, i) => (
+                                {["MNRE Approved Vendor", "PM Surya Ghar Partner", "Solispark 30-Year Guarantee"].map((t, i) => (
                                     <div key={i} className="flex items-center gap-2">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB703" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
                                         <span className="text-[10.5px] md:text-xs font-bold tracking-wider uppercase">{t}</span>
@@ -96,7 +96,7 @@ export default function ResidentialPage() {
                             { num: "₹78,000", label: "Max Govt. Subsidy" },
                             { num: "Month 1", label: "Day-One Savings" },
                             { num: "1–3 Days", label: "Installation Time" },
-                            { num: "30 Years", label: "SolisShield™" },
+                            { num: "30 Years", label: "Solispark" },
                         ].map((s, i) => (
                             <div key={i} className="bg-[#0A192F]/95 px-5 py-6 flex flex-col">
                                 <span className="text-2xl md:text-3xl font-black tracking-tight text-golden">{s.num}</span>
@@ -123,7 +123,7 @@ export default function ResidentialPage() {
                             { title: "₹78K Subsidy — We File It", text: "The PM Surya Ghar Yojana gives up to ₹78,000 back. We handle the entire application, DISCOM coordination, and bank credit — you just collect the money." },
                             { title: "EMI Less Than Your Current Bill", text: "In most cases, your monthly solar EMI is lower than the electricity bill you're paying today. You start saving before you've finished paying." },
                             { title: "Storm-Proof, Roof-Friendly", text: "BIS-certified mounting rated for 180 km/h winds. No roof penetrations that void your waterproofing. Clean, professional finish guaranteed." },
-                            { title: "30-Year SolisShield™ Aftercare", text: "Quarterly panel cleaning, 24/7 remote monitoring, and performance guarantees bundled into your contract — for three full decades." },
+                            { title: "30-Year Solispark Aftercare", text: "Quarterly panel cleaning, 24/7 remote monitoring, and performance guarantees bundled into your contract — for three full decades." },
                         ].map((card, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
                                 whileHover={{ y: -4 }}

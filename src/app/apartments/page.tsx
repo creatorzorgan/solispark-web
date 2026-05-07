@@ -23,8 +23,8 @@ const STEPS = [
     },
     {
         icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-        title: "Society Saves. SolisShield™ Active.",
-        text: "Common area electricity bills drop immediately. Every flat benefits. SolisShield™ covers monitoring, cleaning, and performance for 30 years.",
+        title: "Society Saves. Solispark Active.",
+        text: "Common area electricity bills drop immediately. Every flat benefits. Solispark covers monitoring, cleaning, and performance for 30 years.",
     },
 ];
 
@@ -57,7 +57,7 @@ export default function ApartmentsPage() {
 
                             <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.16, ease: EASE }}
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl">
-                                Common-area solar for apartments and RWAs — lifts, pumps, lighting, and club facilities all powered by the sun. <strong className="text-white">Every flat's maintenance bill drops.</strong> Secured by SolisShield™.
+                                Common-area solar for apartments and RWAs — lifts, pumps, lighting, and club facilities all powered by the sun. <strong className="text-white">Every flat's maintenance bill drops.</strong> Secured by Solispark.
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
@@ -94,7 +94,7 @@ export default function ApartmentsPage() {
                             { num: "₹78,000", label: "Max Subsidy Available" },
                             { num: "50%+", label: "Common Area Bill Cut" },
                             { num: "Every Flat", label: "Benefits from Day 1" },
-                            { num: "30 Years", label: "SolisShield™" },
+                            { num: "30 Years", label: "Solispark" },
                         ].map((s, i) => (
                             <div key={i} className="bg-[#0A192F]/95 px-5 py-6 flex flex-col">
                                 <span className="text-2xl md:text-3xl font-black tracking-tight text-golden">{s.num}</span>
@@ -119,7 +119,7 @@ export default function ApartmentsPage() {
                             { title: "Common Area Bills Slashed", text: "Lifts, pumps, corridor lighting, car park — all powered by your rooftop. Societies typically see 50–70% reductions in common area electricity costs." },
                             { title: "Lower Maintenance Levy Per Flat", text: "Lower electricity bills mean lower maintenance fund requirements. Every flat owner benefits automatically from day one without any changes to their usage." },
                             { title: "PM Surya Ghar Subsidy — We File It", text: "Registered Housing Societies qualify for up to ₹78,000 under the scheme. Our team handles the complete application and DISCOM coordination on behalf of your RWA." },
-                            { title: "Zero Disruption to Residents", text: "Installation happens on common rooftops, not inside flats. Residents see zero inconvenience — they just see smaller bills. SolisShield™ maintains the system for 30 years." },
+                            { title: "Zero Disruption to Residents", text: "Installation happens on common rooftops, not inside flats. Residents see zero inconvenience — they just see smaller bills. Solispark maintains the system for 30 years." },
                         ].map((card, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
                                 whileHover={{ y: -4 }}
@@ -170,7 +170,7 @@ export default function ApartmentsPage() {
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]">Get a free savings report for your society.</h2>
                         <p className="text-base text-white/65 font-medium leading-relaxed">Share your society details and our team will model exact savings per flat, subsidy eligibility, and a payback timeline — free, within 48 hours.</p>
                         <div className="flex flex-wrap gap-3 pt-2">
-                            {["Subsidy filed by us", "Zero disruption to residents", "30-year SolisShield™"].map(b => (
+                            {["Subsidy filed by us", "Zero disruption to residents", "30-year Solispark"].map(b => (
                                 <span key={b} className="flex items-center gap-1.5 text-xs font-bold text-white/70">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB703" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                                     {b}

@@ -190,8 +190,12 @@ export default function About() {
                         {/* Certificate 1 - MNRE */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2rem] shadow-lg border border-gray-100">
                             <div className="order-2 md:order-1 flex justify-center">
-                                <div className="w-full max-w-[300px] aspect-square bg-white rounded-2xl flex items-center justify-center p-6 border border-gray-100 shadow-inner">
-                                    <img src="/mnre-logo.png" alt="MNRE Government of India Logo" className="w-full h-auto object-contain" />
+                                <div className="w-full max-w-[320px] aspect-[3/4] bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
+                                    <iframe
+                                        src="/Print%20_%20Udyam%20Registration%20Certificate.pdf"
+                                        title="Udyam Registration Certificate"
+                                        className="w-full h-full"
+                                    />
                                 </div>
                             </div>
                             <div className="order-1 md:order-2">
@@ -223,8 +227,8 @@ export default function About() {
                                 </a>
                             </div>
                             <div className="flex justify-center">
-                                <div className="w-full max-w-[400px] aspect-[4/3] bg-white rounded-2xl flex items-center justify-center border border-gray-100 shadow-inner overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?q=80&w=800&auto=format&fit=crop" alt="Certification Document" className="w-full h-full object-cover opacity-80" />
+                                <div className="w-full max-w-[400px] aspect-[4/3] bg-white rounded-2xl flex items-center justify-center p-8 border border-gray-100 shadow-inner overflow-hidden">
+                                    <img src="/mnre-logo.png" alt="MNRE Government of India Logo" className="w-full h-auto object-contain" />
                                 </div>
                             </div>
                         </div>
@@ -238,13 +242,13 @@ export default function About() {
                 <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
                     <div className="space-y-4 max-w-xl">
                         <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-golden">
-                            SolisShield™ · Free Site Visit
+                            Solispark · Free Site Visit
                         </span>
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]">
                             Ready to own your energy?
                         </h2>
                         <p className="text-base text-white/65 font-medium leading-relaxed">
-                            Get a free site visit, 3D system design, and savings report — backed by our SolisShield™ guarantee. Zero cost, zero commitment.
+                            Get a free site visit, 3D system design, and savings report — backed by our Solispark guarantee. Zero cost, zero commitment.
                         </p>
                     </div>
                     <div className="w-full lg:w-auto lg:min-w-[420px]">

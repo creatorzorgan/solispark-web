@@ -165,8 +165,8 @@ export default function Portfolio() {
                 {/* PROJECT VIDEO SECTION (THE COOL 3D SCROLL) */}
                 <section className="w-full mb-32 py-24 px-6 md:px-12 bg-[#0A192F] rounded-[2.5rem] md:rounded-[4rem] text-white overflow-hidden relative shadow-2xl">
                     <div className="text-center mb-20">
-                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight">The <span className="text-golden">Performance</span> Logs.</h2>
-                        <p className="text-white/40 font-bold uppercase tracking-widest text-sm mt-4">Unfiltered Site Deployment Data</p>
+                        <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Our <span className="text-golden">Live</span> Sites.</h2>
+                        <p className="text-white/40 font-bold uppercase tracking-widest text-sm mt-4">Real installations · Real results</p>
                     </div>
 
                     <div className="relative flex justify-center items-center h-[500px] md:h-[650px]">
@@ -183,15 +183,7 @@ export default function Portfolio() {
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         allowFullScreen
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-[1] pointer-events-none" />
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
-                                        <p className="font-bold tracking-widest text-xs text-golden uppercase">
-                                            Transmission {String(video.index).padStart(2, "0")}
-                                        </p>
-                                    </div>
-                                    <div className="absolute bottom-10 left-10 z-10">
-                                        <p className="text-white font-bold text-2xl tracking-tight">Live Site <br />Update</p>
-                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-[1] pointer-events-none" />
                                 </motion.div>
                             ))}
                         </div>
@@ -210,7 +202,7 @@ export default function Portfolio() {
                                 Ready to be on this page?
                             </h2>
                             <p className="text-base text-white/65 font-medium leading-relaxed">
-                                Join 119+ clients who switched to solar with Solispark. Get your free site visit and savings report — backed by SolisShield™.
+                                Join 119+ clients who switched to solar with Solispark. Get your free site visit and savings report — backed by Solispark.
                             </p>
                         </div>
                         <div className="w-full lg:w-auto lg:min-w-[420px]">

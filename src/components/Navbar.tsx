@@ -5,11 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const solutionLinks = [
-    { href: "/residential", label: "Home & Family", badge: "Up to ₹78K subsidy" },
-    { href: "/commercial", label: "Business & Offices", badge: "20–30% below grid" },
-    { href: "/industrial", label: "Factory & Plant", badge: "40%+ cost reduction" },
-    { href: "/apartments", label: "Apartments & RWAs", badge: "50%+ common bill cut" },
+    { href: "/residential", label: "Home & Family", badge: "Up to 90% savings" },
+    { href: "/commercial", label: "Business & Offices", badge: "75–80% savings" },
+    { href: "/industrial", label: "Factory & Plant", badge: "70–75% savings" },
+    { href: "/apartments", label: "Apartments & RWAs", badge: "Up to 70% savings" },
     { href: "/ev-charging", label: "EV Charging", badge: "Near-zero charge cost" },
+    { href: "/industrial", label: "Power Plant Set Up", badge: "Utility-scale EPC" },
 ];
 
 export default function Navbar() {

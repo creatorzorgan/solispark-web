@@ -139,7 +139,7 @@ export default function LeadForm({
                                 </svg>
                             </div>
                             <p className={cn("text-sm font-bold tracking-widest uppercase", isDark ? "text-white/60" : "text-[#0A192F]/60")}>
-                                Lead secured · SolisShield™
+                                Lead secured · Solispark
                             </p>
                         </motion.div>
                     ) : (
@@ -235,12 +235,12 @@ export default function LeadForm({
                             </button>
 
                             <p className={cn("text-[11px] font-medium leading-relaxed text-center", isDark ? "text-white/45" : "text-[#0A192F]/45")}>
-                                No spam, ever. Backed by the SolisShield™ commitment.
+                                No spam, ever. Backed by the Solispark commitment.
                             </p>
 
                             {status === "error" && (
                                 <p className="text-sm font-medium text-red-500 text-center -mt-1">
-                                    Something went wrong. Try again or call +91 9886886122.
+                                    Something went wrong. Try again or call +91 7760375599.
                                 </p>
                             )}
                         </motion.form>

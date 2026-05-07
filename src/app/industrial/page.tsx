@@ -23,7 +23,7 @@ const STEPS = [
     },
     {
         icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-        title: "Grid Sync. SolisShield™ Live.",
+        title: "Grid Sync. Solispark Live.",
         text: "Your plant goes live, bills drop from month one. 24/7 remote monitoring, scheduled maintenance, and performance guarantees for 30 years.",
     },
 ];
@@ -57,13 +57,13 @@ export default function IndustrialPage() {
 
                             <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.16, ease: EASE }}
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl">
-                                Megawatt-class solar for manufacturers, warehouses, and processing plants. <strong className="text-white">Zero operational downtime</strong> during deployment. Bills slashed from day one. Secured by SolisShield™.
+                                Megawatt-class solar for manufacturers, warehouses, and processing plants. <strong className="text-white">Zero operational downtime</strong> during deployment. Bills slashed from day one. Secured by Solispark.
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
                                 className="relative w-full aspect-[5/3] rounded-[1.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] bg-[#0A192F]">
-                                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1400&auto=format&fit=crop"
-                                    alt="Industrial solar plant" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+                                <img src="/family-rooftop-landscape.jpg"
+                                    alt="Solar power plant installation" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/40 via-transparent to-transparent pointer-events-none" />
                             </motion.div>
 
@@ -92,7 +92,7 @@ export default function IndustrialPage() {
                             { num: "50 MW+", label: "Max Plant Size" },
                             { num: "0", label: "Downtime During Install" },
                             { num: "40%+", label: "Operational Cost Cut" },
-                            { num: "30 Years", label: "SolisShield™" },
+                            { num: "30 Years", label: "Solispark" },
                         ].map((s, i) => (
                             <div key={i} className="bg-[#0A192F]/95 px-5 py-6 flex flex-col">
                                 <span className="text-2xl md:text-3xl font-black tracking-tight text-golden">{s.num}</span>
@@ -117,7 +117,7 @@ export default function IndustrialPage() {
                             { title: "100 kW to 50 MW Range", text: "Whether you're running a 500 kW processing plant or a 20 MW industrial campus, our engineering team scales the design to match your exact load profile." },
                             { title: "PMSG-Optimised Output", text: "Permanent Magnet Synchronous Generator integration maximises energy harvest for high-load industrial profiles — delivering up to 18% more yield vs standard configurations." },
                             { title: "Zero Disruption Execution", text: "Our EPC teams work parallel to your shifts. Structural, electrical, and grid work is sequenced to avoid any interference with your production schedule." },
-                            { title: "SolisShield™ Performance Guarantee", text: "If underproduction occurs against the contractual curve, we compensate in cash. Quarterly audits, cleaning, and 24/7 remote monitoring included for 30 years." },
+                            { title: "Solispark Performance Guarantee", text: "If underproduction occurs against the contractual curve, we compensate in cash. Quarterly audits, cleaning, and 24/7 remote monitoring included for 30 years." },
                         ].map((card, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
                                 whileHover={{ y: -4 }}

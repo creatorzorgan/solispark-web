@@ -59,12 +59,6 @@ export default function Contact() {
                         {/* Direct contact */}
                         <div className="bg-[#0A192F] rounded-3xl p-7 text-white space-y-4">
                             <h2 className="text-base font-bold tracking-tight mb-1">Prefer to call?</h2>
-                            <a href="tel:+919886886122" className="flex items-center gap-3 text-sm font-bold text-golden hover:text-white transition-colors">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12 19.79 19.79 0 0 1 1.06 3.38 2 2 0 0 1 3.05 1.2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
-                                </svg>
-                                +91 9886886122
-                            </a>
                             <a href="tel:+917760375599" className="flex items-center gap-3 text-sm font-bold text-golden hover:text-white transition-colors">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12 19.79 19.79 0 0 1 1.06 3.38 2 2 0 0 1 3.05 1.2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
@@ -86,7 +80,7 @@ export default function Contact() {
 
                         {/* Trust badges */}
                         <div className="flex flex-wrap gap-3">
-                            {["MNRE Certified", "Startup India", "SolisShield™ Backed"].map((badge) => (
+                            {["MNRE Certified", "Startup India", "Solispark Backed"].map((badge) => (
                                 <span key={badge} className="px-4 py-2 rounded-full bg-white border border-gray-200 text-[11px] font-bold tracking-wide text-[#0A192F]/60">
                                     {badge}
                                 </span>
@@ -103,7 +97,7 @@ export default function Contact() {
                     >
                         <div className="px-7 pt-7 pb-4 border-b border-gray-100">
                             <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-[#0A192F]/50">
-                                Secure Consultation Form · SolisShield™
+                                Secure Consultation Form · Solispark
                             </span>
                             <p className="mt-1 text-sm text-[#0A192F]/55 font-medium">
                                 Takes under 2 minutes. No spam, ever.

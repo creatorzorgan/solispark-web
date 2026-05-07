@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(curl -s \"http://localhost:59635/commercial\")",
+      "Bash(curl -s \"http://localhost:59635/apartments\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:59635/__TRACKED_VAR__)",
+      "Bash(netstat -ano)",
+      "Bash(findstr \"LISTENING\")",
+      "Bash(findstr \":3000\\\\|:59635\\\\|:3001\")",
+      "Bash(findstr \"3000\\\\|59635\")",
+      "Bash(npm run *)",
+      "Bash(python -c ' *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git push *)",
+      "mcp__7838e269-411d-499d-93b3-e3417d7f33ef__list_teams",
+      "mcp__7838e269-411d-499d-93b3-e3417d7f33ef__get_project",
+      "mcp__7838e269-411d-499d-93b3-e3417d7f33ef__list_projects",
+      "mcp__7838e269-411d-499d-93b3-e3417d7f33ef__deploy_to_vercel",
+      "Bash(vercel --version)",
+      "Bash(npx vercel *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(ls /mnt/c/Users/ASUS/Documents/solar-updated-website/.claude/worktrees/confident-wilbur-08b164/public/)",
+      "Bash(family)",
+      "Bash(residential)",
+      "Bash(commercial)",
+      "Bash(industrial)",
+      "Bash(power\")"
+    ]
+  }
+}

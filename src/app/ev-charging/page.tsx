@@ -23,7 +23,7 @@ const STEPS = [
     },
     {
         icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-        title: "Charge on Solar. SolisShield™ Active.",
+        title: "Charge on Solar. Solispark Active.",
         text: "Your fleet charges at near-zero marginal cost. 24/7 monitoring, smart load management, and performance guarantees for 30 years.",
     },
 ];
@@ -57,7 +57,7 @@ export default function EVChargingPage() {
 
                             <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.16, ease: EASE }}
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl">
-                                Solar panels power your EV chargers directly — cutting charging costs to <strong className="text-white">near zero</strong>. Future-proof your fleet or facility with a SolisShield™ backed system.
+                                Solar panels power your EV chargers directly — cutting charging costs to <strong className="text-white">near zero</strong>. Future-proof your fleet or facility with a Solispark backed system.
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
@@ -92,7 +92,7 @@ export default function EVChargingPage() {
                             { num: "~₹0", label: "Marginal Charging Cost" },
                             { num: "AC + DC", label: "Charger Types" },
                             { num: "100%", label: "Solar Backed" },
-                            { num: "30 Years", label: "SolisShield™" },
+                            { num: "30 Years", label: "Solispark" },
                         ].map((s, i) => (
                             <div key={i} className="bg-[#0A192F]/95 px-5 py-6 flex flex-col">
                                 <span className="text-2xl md:text-3xl font-black tracking-tight text-golden">{s.num}</span>
@@ -117,7 +117,7 @@ export default function EVChargingPage() {
                             { title: "Near-Zero Charging Cost", text: "Solar panels generate free electricity during the day — your vehicles charge at near-zero marginal cost instead of paying grid rates per kWh." },
                             { title: "Scalable for Any Fleet Size", text: "From a 5-vehicle corporate fleet to a 200-bay logistics depot — we design and scale the solar + charger combination for your exact throughput." },
                             { title: "Smart Load Management", text: "Our systems prioritise EV charging when solar is abundant and draw from the grid only when necessary — maximising self-consumption and minimising bills." },
-                            { title: "SolisShield™ 30-Year Guarantee", text: "Solar system performance is guaranteed for 30 years. Charger uptime is monitored 24/7 with proactive maintenance — your fleet never waits." },
+                            { title: "Solispark 30-Year Guarantee", text: "Solar system performance is guaranteed for 30 years. Charger uptime is monitored 24/7 with proactive maintenance — your fleet never waits." },
                         ].map((card, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
                                 whileHover={{ y: -4 }}
@@ -168,7 +168,7 @@ export default function EVChargingPage() {
                         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]">Future-proof your fleet with solar-backed charging.</h2>
                         <p className="text-base text-white/65 font-medium leading-relaxed">Tell us about your fleet and parking area — our EV solutions team will design a system and share a savings model within 48 hours.</p>
                         <div className="flex flex-wrap gap-3 pt-2">
-                            {["Near-zero charging cost", "AC & DC chargers", "SolisShield™ guaranteed"].map(b => (
+                            {["Near-zero charging cost", "AC & DC chargers", "Solispark guaranteed"].map(b => (
                                 <span key={b} className="flex items-center gap-1.5 text-xs font-bold text-white/70">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFB703" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                                     {b}

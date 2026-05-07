@@ -77,13 +77,14 @@ export default function Services() {
                     className="mb-16"
                 >
                     <p className="text-xs font-bold tracking-[0.25em] uppercase text-gray-400 mb-5">Browse by property type</p>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                         {[
                             { href: "/residential", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>, label: "Home & Family", badge: "Up to ₹78K subsidy" },
                             { href: "/commercial", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>, label: "Business & Offices", badge: "20–30% below grid" },
                             { href: "/industrial", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M4 20V10l4-4 4 4 4-4 4 4v10"/></svg>, label: "Factory & Plant", badge: "40%+ cost reduction" },
                             { href: "/apartments", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></svg>, label: "Apartments & RWAs", badge: "50%+ common bill cut" },
                             { href: "/ev-charging", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2"/><circle cx="9" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>, label: "EV Charging", badge: "Near-zero charge cost" },
+                            { href: "/industrial", icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>, label: "Power Plant Set Up", badge: "MW-scale generation" },
                         ].map((v, i) => (
                             <Link key={i} href={v.href}
                                 className="group flex flex-col items-start gap-3 p-4 rounded-2xl border border-gray-200 bg-white hover:border-golden hover:shadow-[0_8px_30px_rgba(10,25,47,0.08)] hover:-translate-y-1 transition-all">
@@ -166,7 +167,7 @@ export default function Services() {
                 <div className="relative z-10 max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
                     <div className="space-y-4 max-w-lg">
                         <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-golden">
-                            Free Site Visit · SolisShield™
+                            Free Site Visit · Solispark
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-[1.05]">
                             Not sure which model fits you?

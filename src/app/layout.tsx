@@ -79,17 +79,10 @@ export default function RootLayout({
                                 </p>
                                 <p>
                                     <a
-                                        href="tel:+919886886122"
-                                        className="hover:text-golden transition-colors"
-                                    >
-                                        +91 9886886122
-                                    </a>
-                                    <span className="text-gray-400 mx-2">/</span>
-                                    <a
                                         href="tel:+917760375599"
                                         className="hover:text-golden transition-colors"
                                     >
-                                        7760375599
+                                        +91 7760375599
                                     </a>
                                 </p>
                                 <p>
@@ -221,7 +214,7 @@ export default function RootLayout({
                 <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
                     {/* WhatsApp */}
                     <a
-                        href="https://wa.me/919886886122?text=Hi%20Solispark%20%E2%80%94%20I%27m%20interested%20in%20a%20solar%20consultation."
+                        href="https://wa.me/917760375599?text=Hi%20Solispark%20%E2%80%94%20I%27m%20interested%20in%20a%20solar%20consultation."
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Chat on WhatsApp"
@@ -233,7 +226,7 @@ export default function RootLayout({
                     </a>
                     {/* Click-to-Call */}
                     <a
-                        href="tel:+919886886122"
+                        href="tel:+917760375599"
                         aria-label="Call Solispark"
                         className="group w-14 h-14 rounded-full bg-golden text-[#0A192F] flex items-center justify-center shadow-[0_10px_30px_rgba(255,183,3,0.45)] hover:scale-110 hover:shadow-[0_15px_40px_rgba(255,183,3,0.6)] transition-all"
                     >

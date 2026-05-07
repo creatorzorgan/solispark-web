@@ -24,8 +24,8 @@ const STEPS = [
     },
     {
         icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
-        title: "Savings Live. SolisShield™ Active.",
-        text: "From day one, your bills drop. SolisShield™ monitors performance 24/7, guarantees output, and covers maintenance for the life of the asset.",
+        title: "Savings Live. Solispark Active.",
+        text: "From day one, your bills drop. Solispark monitors performance 24/7, guarantees output, and covers maintenance for the life of the asset.",
     },
 ];
 
@@ -58,13 +58,13 @@ export default function CommercialPage() {
 
                             <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.16, ease: EASE }}
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl">
-                                Pay <strong className="text-white">20–30% below grid rates</strong> under our OPEX model — or own the asset outright. Either way, savings start from day one, backed by SolisShield™.
+                                Pay <strong className="text-white">20–30% below grid rates</strong> under our OPEX model — or own the asset outright. Either way, savings start from day one, backed by Solispark.
                             </motion.p>
 
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
                                 className="relative w-full aspect-[5/3] rounded-[1.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] bg-gradient-to-br from-[#FFB703] via-[#E5A500] to-[#0A192F]">
-                                <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1400&auto=format&fit=crop"
-                                    alt="Commercial rooftop solar installation" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+                                <img src="/dji-image-2.jpg"
+                                    alt="Commercial warehouse rooftop solar installation" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/40 via-transparent to-transparent pointer-events-none" />
                             </motion.div>
 
@@ -118,7 +118,7 @@ export default function CommercialPage() {
                             { title: "OPEX / PPA — Zero on Balance Sheet", text: "We build, own, and operate the asset. You pay only for power consumed at a tariff locked 20–30% below grid rates. No capital blocked, no depreciation headaches." },
                             { title: "Books Stay Clean", text: "Under the PPA model, there's no on-balance-sheet asset. Your CFO will love it — predictable energy cost, improved EBITDA, no CapEx drag." },
                             { title: "DISCOM Handled End-to-End", text: "Net-metering applications, approvals, and grid sync — our regulatory team covers all 47 bureaucratic touchpoints so you don't see a single one." },
-                            { title: "SolisShield™ Performance Guarantee", text: "If your system underproduces against the contracted curve, we compensate the deficit in cash. No fine print, no arguments." },
+                            { title: "Solispark Performance Guarantee", text: "If your system underproduces against the contracted curve, we compensate the deficit in cash. No fine print, no arguments." },
                         ].map((card, i) => (
                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.08, ease: EASE }}
                                 whileHover={{ y: -4 }}

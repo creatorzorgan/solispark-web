@@ -38,7 +38,7 @@ export default function Home() {
             name: "Arjun Hegde",
             role: "Director, Operations · Electronic City, Bengaluru",
             savings: "₹68K/mo saved from Month 1",
-            quote: "Month 6, one inverter flagged an error. The SolisShield team replaced it in 36 hours. No calls, no paperwork. That's the difference between a promise and a guarantee.",
+            quote: "Month 6, one inverter flagged an error. The Solispark team replaced it in 36 hours. No calls, no paperwork. That's the difference between a promise and a guarantee.",
             photo: "/arjun.jpeg",
         },
     ];
@@ -95,7 +95,7 @@ export default function Home() {
                                 transition={{ duration: 0.7, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl mb-8"
                             >
-                                India&apos;s premier EPC partner for megawatt-class solar parks. From land to grid — engineered to outlast your operational timeline, secured by SolisShield&trade;.
+                                India&apos;s premier EPC partner for megawatt-class solar parks. From land to grid — engineered to outlast your operational timeline, secured by Solispark.
                             </motion.p>
 
                             <motion.p
@@ -174,7 +174,7 @@ export default function Home() {
                             { num: "12 MW+", label: "Active Capacity" },
                             { num: "119+", label: "Projects Delivered" },
                             { num: "8", label: "States Operational" },
-                            { num: "30y", label: "SolisShield™" },
+                            { num: "30y", label: "Solispark" },
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
@@ -267,7 +267,7 @@ export default function Home() {
                                 </motion.p>
                             </div>
 
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                                 {[
                                     {
                                         href: "/residential",
@@ -321,6 +321,17 @@ export default function Home() {
                                         icon: (
                                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                                                 <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 7l2 3h2l-2 5"/>
+                                            </svg>
+                                        ),
+                                    },
+                                    {
+                                        href: "/industrial",
+                                        title: "Power Plant Set Up",
+                                        sub: "Utility-scale ground-mounted solar parks",
+                                        badge: "MW-scale generation",
+                                        icon: (
+                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                                                <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
                                             </svg>
                                         ),
                                     },
@@ -411,7 +422,7 @@ export default function Home() {
                                 {[
                                     {
                                         title: "Guaranteed Savings",
-                                        text: "Day-one electricity bill cuts. SolisShield™ pays the difference if you don't hit projected ROI.",
+                                        text: "Day-one electricity bill cuts. Solispark pays the difference if you don't hit projected ROI.",
                                         icon: (
                                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20" /><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                                         ),
@@ -480,7 +491,7 @@ export default function Home() {
                                 >
                                     <span className="w-1.5 h-1.5 rounded-full bg-golden animate-pulse" />
                                     <span className="text-[10px] md:text-[11px] font-bold tracking-[0.25em] uppercase text-golden">
-                                        SolisShield&trade; · Industry-First
+                                        Solispark · Industry-First
                                     </span>
                                 </motion.div>
                                 <motion.h2
@@ -501,7 +512,7 @@ export default function Home() {
                                     transition={{ duration: 0.7, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
                                     className="text-base md:text-lg text-white/70 font-medium leading-relaxed max-w-xl"
                                 >
-                                    SolisShield&trade; bundles every guarantee under one trademark. The most comprehensive solar protection in India — built so finance teams sleep easy and ops teams stay focused.
+                                    Solispark bundles every guarantee under one trademark. The most comprehensive solar protection in India — built so finance teams sleep easy and ops teams stay focused.
                                 </motion.p>
                             </div>
 
@@ -761,7 +772,7 @@ export default function Home() {
                                     {
                                         num: "04",
                                         title: "Solar On. You Save. We Maintain.",
-                                        text: "Your system goes live and bills drop from month one. We monitor, maintain, and guarantee performance for 30 years under SolisShield™.",
+                                        text: "Your system goes live and bills drop from month one. We monitor, maintain, and guarantee performance for 30 years under Solispark.",
                                         icon: (
                                             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -875,7 +886,7 @@ export default function Home() {
                                 transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
                                 className="text-base md:text-lg text-gray-600 font-medium"
                             >
-                                Book your <span className="text-golden font-bold">Free Site Visit</span> &amp; <span className="text-golden font-bold">Consultation</span> — backed by SolisShield&trade;.
+                                Book your <span className="text-golden font-bold">Free Site Visit</span> &amp; <span className="text-golden font-bold">Consultation</span> — backed by Solispark.
                             </motion.p>
                         </div>
                         <motion.div
@@ -1069,7 +1080,7 @@ export default function Home() {
                                     </div>
                                     <div className="text-center">
                                         <p className="text-base md:text-lg font-black text-[#0A192F] tracking-tight leading-tight">Pruthvik Hariprasad</p>
-                                        <p className="text-xs md:text-sm font-semibold text-golden mt-0.5">Co-Founder & CEO</p>
+                                        <p className="text-xs md:text-sm font-semibold text-golden mt-0.5">Founder</p>
                                     </div>
                                 </div>
                                 {/* Ranveer */}
@@ -1079,7 +1090,7 @@ export default function Home() {
                                     </div>
                                     <div className="text-center">
                                         <p className="text-base md:text-lg font-black text-[#0A192F] tracking-tight leading-tight">Ranveer Dorai</p>
-                                        <p className="text-xs md:text-sm font-semibold text-golden mt-0.5">Co-Founder & COO</p>
+                                        <p className="text-xs md:text-sm font-semibold text-golden mt-0.5">Founder</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -1154,7 +1165,7 @@ export default function Home() {
                                 className="order-2 lg:order-1 space-y-6"
                             >
                                 <span className="inline-block text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase text-[#0A192F]/55">
-                                    SolisShield™ Live · Always-On Monitoring
+                                    Solispark Live · Always-On Monitoring
                                 </span>
                                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A192F] leading-[1.05]">
                                     Track every panel, <br />
@@ -1167,7 +1178,7 @@ export default function Home() {
                                     {[
                                         "Real-time generation & savings ticker",
                                         "Panel-level fault detection in under 60 seconds",
-                                        "Weather + storm alerts with SolisShield™ response",
+                                        "Weather + storm alerts with Solispark response",
                                         "Monthly performance reports — auto-emailed",
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-3 text-sm md:text-[15px] text-[#0A192F]/75 font-medium">
@@ -1205,7 +1216,7 @@ export default function Home() {
                                         {/* App header */}
                                         <div className="flex items-center justify-between">
                                             <div>
-                                                <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-golden">SolisShield™ Live</p>
+                                                <p className="text-[9px] font-bold tracking-[0.2em] uppercase text-golden">Solispark Live</p>
                                                 <p className="text-white/50 text-[10px] font-medium">Tue, 28 Apr · Bengaluru</p>
                                             </div>
                                             <div className="w-7 h-7 rounded-full bg-golden/20 flex items-center justify-center">

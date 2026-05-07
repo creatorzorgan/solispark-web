@@ -33,7 +33,7 @@ const SECTIONS = [
         title: "Data Retention",
         content: [
             "If you submit an enquiry and do not proceed with a project, we retain your details for up to 24 months in case you wish to revisit your solar decision.",
-            "If you become a Solispark customer, your project records are retained for the full duration of your SolisShield™ service agreement (up to 30 years) as required for warranty and performance guarantee administration.",
+            "If you become a Solispark customer, your project records are retained for the full duration of your Solispark service agreement (up to 30 years) as required for warranty and performance guarantee administration.",
             "You may request deletion of your data at any time by contacting us at the details below.",
         ],
     },
