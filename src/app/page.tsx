@@ -9,6 +9,7 @@ import LeadForm from "@/components/leadgen/LeadForm";
 export default function Home() {
     // Calculator State (Dynamic Logic)
     const [bill, setBill] = useState(2500);
+    const [billInput, setBillInput] = useState("2500");
 
     // Derived Calculations based on an approx ₹8/unit tariff and 120 units/kW monthly generation
     const estimatedUnitsConsumed = bill / 8;
@@ -24,21 +25,21 @@ export default function Home() {
             role: "Factory Owner · Peenya Industrial Area, Bengaluru",
             savings: "Bill: ₹1.4L → ₹18K/mo",
             quote: "Our electricity bill was killing margins for years. Now it's basically nothing. Solispark finished the whole thing in 3 days — I never had to chase a single approval.",
-            photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop&fit=facearea&facepad=3",
+            photo: "/suresh.jpeg",
         },
         {
             name: "Priya Venkatesh",
             role: "RWA Secretary · Whitefield, Bengaluru",
             savings: "Society saves ₹42,000/mo",
             quote: "From BESCOM approvals to the subsidy landing in our account — they handled every single thing. Our 84 flats now barely pay for common area electricity.",
-            photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop&fit=facearea&facepad=3",
+            photo: "/priya.jpeg",
         },
         {
             name: "Arjun Hegde",
             role: "Director, Operations · Electronic City, Bengaluru",
             savings: "₹68K/mo saved from Month 1",
             quote: "Month 6, one inverter flagged an error. The SolisShield team replaced it in 36 hours. No calls, no paperwork. That's the difference between a promise and a guarantee.",
-            photo: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?q=80&w=600&auto=format&fit=crop&fit=facearea&facepad=3",
+            photo: "/arjun.jpeg",
         },
     ];
 
@@ -95,6 +96,15 @@ export default function Home() {
                                 className="text-base md:text-lg text-white/75 font-medium leading-relaxed max-w-xl mb-8"
                             >
                                 India&apos;s premier EPC partner for megawatt-class solar parks. From land to grid — engineered to outlast your operational timeline, secured by SolisShield&trade;.
+                            </motion.p>
+
+                            <motion.p
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.7, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                                className="text-sm md:text-base font-bold tracking-[0.15em] text-golden/80 italic mb-8 -mt-4"
+                            >
+                                Radiance to power. Every second. Every hour.
                             </motion.p>
 
                             {/* FAMILY PHOTO — responsive: portrait on mobile, landscape on desktop. */}
@@ -335,8 +345,12 @@ export default function Home() {
                                             <p className="text-[11px] md:text-xs text-white/50 font-medium leading-relaxed mb-3">
                                                 {v.sub}
                                             </p>
-                                            <span className="mt-auto inline-block px-2.5 py-1 rounded-full bg-golden/10 text-golden text-[10px] font-bold tracking-wide">
+                                            <span className="mt-auto inline-block px-2.5 py-1 rounded-full bg-golden/10 text-golden text-[10px] font-bold tracking-wide mb-3">
                                                 {v.badge}
+                                            </span>
+                                            <span className="inline-flex items-center gap-1 text-[11px] font-bold text-white/40 group-hover:text-golden transition-colors">
+                                                See your options
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                             </span>
                                         </Link>
                                     </motion.div>
@@ -490,6 +504,21 @@ export default function Home() {
                                     SolisShield&trade; bundles every guarantee under one trademark. The most comprehensive solar protection in India — built so finance teams sleep easy and ops teams stay focused.
                                 </motion.p>
                             </div>
+
+                            {/* USP BANNER */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 16 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-60px" }}
+                                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                                className="mb-12 w-full rounded-2xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)]"
+                            >
+                                <img
+                                    src="/usp-banner.png"
+                                    alt="Solispark USP — Why Choose Us"
+                                    className="w-full h-auto object-cover"
+                                />
+                            </motion.div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
                                 {[
@@ -896,9 +925,20 @@ export default function Home() {
                                         <div className="flex items-center gap-1.5">
                                             <span className="text-base font-bold text-[#0A192F]/55">₹</span>
                                             <input
-                                                type="number"
-                                                value={bill}
-                                                onChange={(e) => setBill(Math.max(1000, Number(e.target.value) || 1000))}
+                                                type="text"
+                                                inputMode="numeric"
+                                                value={billInput}
+                                                onChange={(e) => {
+                                                    const raw = e.target.value.replace(/[^0-9]/g, "");
+                                                    setBillInput(raw);
+                                                    const num = parseInt(raw, 10);
+                                                    if (!isNaN(num)) setBill(num);
+                                                }}
+                                                onBlur={() => {
+                                                    const num = Math.max(1000, parseInt(billInput, 10) || 1000);
+                                                    setBill(num);
+                                                    setBillInput(String(num));
+                                                }}
                                                 className="w-28 px-2 py-1.5 rounded-lg border border-gray-200 text-base font-bold tracking-tight text-[#0A192F] focus:outline-none focus:ring-2 focus:ring-golden/40 text-right"
                                             />
                                         </div>
@@ -909,7 +949,7 @@ export default function Home() {
                                         max="500000"
                                         step="100"
                                         value={bill}
-                                        onChange={(e) => setBill(Number(e.target.value))}
+                                        onChange={(e) => { const v = Number(e.target.value); setBill(v); setBillInput(String(v)); }}
                                         className="w-full h-2 bg-gray-100 rounded-full appearance-none cursor-pointer accent-golden"
                                     />
                                 </div>
@@ -1021,12 +1061,26 @@ export default function Home() {
                             </div>
 
                             {/* SIDE-BY-SIDE FOUNDERS */}
-                            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full flex flex-row items-center justify-center gap-4 md:gap-6 h-[400px] md:h-[500px]">
-                                <div className="relative w-1/2 h-[90%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
-                                    <Image src="/pruthvik.jpg" alt="Pruthvik Hariprasad" fill className="object-cover" sizes="50vw" />
+                            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full flex flex-row items-end justify-center gap-4 md:gap-6">
+                                {/* Pruthvik */}
+                                <div className="flex flex-col items-center gap-3 w-1/2">
+                                    <div className="relative w-full aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                                        <Image src="/pruthvik.jpg" alt="Pruthvik Hariprasad" fill className="object-cover object-top" sizes="50vw" />
+                                    </div>
+                                    <div className="text-center">
+                                        <p className="text-base md:text-lg font-black text-[#0A192F] tracking-tight leading-tight">Pruthvik Hariprasad</p>
+                                        <p className="text-xs md:text-sm font-semibold text-golden mt-0.5">Co-Founder & CEO</p>
+                                    </div>
                                 </div>
-                                <div className="relative w-1/2 h-[90%] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white mt-16">
-                                    <Image src="/ranveer.jpg" alt="Ranveer Dorai" fill className="object-cover" sizes="50vw" />
+                                {/* Ranveer */}
+                                <div className="flex flex-col items-center gap-3 w-1/2 mt-10 md:mt-16">
+                                    <div className="relative w-full aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                                        <Image src="/ranveer.jpg" alt="Ranveer Dorai" fill className="object-cover object-top" sizes="50vw" />
+                                    </div>
+                                    <div className="text-center">
+                                        <p className="text-base md:text-lg font-black text-[#0A192F] tracking-tight leading-tight">Ranveer Dorai</p>
+                                        <p className="text-xs md:text-sm font-semibold text-golden mt-0.5">Co-Founder & COO</p>
+                                    </div>
                                 </div>
                             </motion.div>
                         </div>
