@@ -26,6 +26,18 @@ export default function FAQPage() {
         {
              question: "How do I know my exact ROI?",
              answer: "Before any commitment, we conduct a massive site audit. We cross-reference your historical grid load with high-fidelity solar irradiance modeling for your coordinates to guarantee your projected yield and payback period down to the decimal."
+        },
+        {
+            question: "How much subsidy can I get under PM Surya Ghar?",
+            answer: "The Government of India subsidises up to ₹78,000 on rooftop systems under the PM Surya Ghar Muft Bijli Yojana scheme. For a 1–2 kW system you get ₹30,000; for 2–3 kW, ₹60,000; and above 3 kW, ₹78,000 (maximum cap). Our team handles the entire application — from filing to DISCOM approval to direct bank credit — at no extra charge."
+        },
+        {
+            question: "How long does a residential installation take?",
+            answer: "On-site installation takes 1–3 days. The full process — from your free site visit to your system going live — typically takes 3–4 weeks, most of which is permit processing and DISCOM approval. We handle all paperwork and keep you updated at every step."
+        },
+        {
+            question: "Will solar work during power cuts?",
+            answer: "Standard grid-tied systems do not operate during power cuts for safety reasons. However, we offer hybrid systems with battery storage that keep your critical appliances running even when the grid is down. Our engineers will recommend the right configuration based on your usage and location."
         }
     ];
 
@@ -35,13 +47,13 @@ export default function FAQPage() {
                 {/* Header */}
                 <section className="mb-12 md:mb-16 text-center">
                     <span className="inline-flex items-center rounded-full border border-gray-200 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500 mb-4">
-                        FAQ · B2B Solar Strategy
+                        FAQ · Solar Made Simple
                     </span>
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A192F] mb-4">
-                        Answers for serious energy buyers.
+                        Everything you want to know.
                     </h1>
                     <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-                        The five questions every CFO, plant head, and promoter asks before committing to a solar asset—clarified in one place.
+                        From subsidy details to installation timelines — answers for homeowners, businesses, and industrial buyers in one place.
                     </p>
                 </section>
 

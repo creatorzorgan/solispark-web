@@ -46,7 +46,7 @@ export default function Navbar() {
                     href="/contact"
                     className="hidden md:inline-flex bg-golden hover:bg-[#E5A500] text-[#0A192F] font-bold px-6 py-2.5 rounded-full text-sm transition-all hover:shadow-[0_0_15px_rgba(255,183,3,0.4)]"
                 >
-                    Initiate Mega-Project
+                    Get Free Estimate
                 </Link>
 
                 {/* Mobile Hamburger */}

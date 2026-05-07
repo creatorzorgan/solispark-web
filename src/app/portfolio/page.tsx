@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import LeadForm from "@/components/leadgen/LeadForm";
 
 const DJI_IMAGES = [
     "/dji-image-1.jpg",
@@ -197,14 +198,25 @@ export default function Portfolio() {
                     </div>
                 </section>
 
-                {/* Final Button */}
-                <div className="text-center">
-                    <Link
-                        href="/contact"
-                        className="inline-block bg-golden hover:bg-[#E5A500] text-[#0A192F] font-bold px-12 py-6 rounded-2xl transition-all shadow-2xl hover:-translate-y-1 text-2xl"
-                    >
-                        Build Your Energy Moat
-                    </Link>
+                {/* LEAD CAPTURE */}
+                <div className="relative mt-8 py-20 md:py-28 px-6 md:px-12 bg-[#0A192F] rounded-[2.5rem] text-white overflow-hidden">
+                    <div className="absolute -top-20 right-0 w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.18),transparent_70%)] pointer-events-none" />
+                    <div className="relative z-10 max-w-5xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+                        <div className="space-y-4 max-w-lg">
+                            <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-golden">
+                                Your Project Could Be Next
+                            </span>
+                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-[1.05]">
+                                Ready to be on this page?
+                            </h2>
+                            <p className="text-base text-white/65 font-medium leading-relaxed">
+                                Join 119+ clients who switched to solar with Solispark. Get your free site visit and savings report — backed by SolisShield™.
+                            </p>
+                        </div>
+                        <div className="w-full lg:w-auto lg:min-w-[420px]">
+                            <LeadForm vertical="solar-parks" theme="dark" variant="card" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

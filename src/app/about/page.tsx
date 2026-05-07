@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView, animate } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import LeadForm from "@/components/leadgen/LeadForm";
 
 // Custom component for the counting number animation
 // Updated component for the counting number animation (Mobile Optimized)
@@ -56,10 +57,9 @@ export default function About() {
             <section className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                        <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-6">
-                            <span className="text-[#0A192F]">We Build</span><br/>
-                            <span className="text-golden">Energy</span><br/>
-                            <span className="text-golden">Empires.</span>
+                        <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.04] mb-6">
+                            We Build <br />
+                            <span className="text-golden">Energy Empires.</span>
                         </h1>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl">
@@ -71,24 +71,24 @@ export default function About() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 md:mt-24 border-t border-gray-200 pt-12 md:pt-16">
                     <div>
                         <h3 className="text-4xl md:text-5xl font-black text-golden mb-2">
-                            <AnimatedCounter to={25} />+
+                            <AnimatedCounter to={119} />+
                         </h3>
-                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Utility-Scale Projects</h4>
+                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Projects Delivered</h4>
                         <p className="text-gray-600 font-medium">Deployed fast. Built to last.</p>
                     </div>
                     <div>
                         <h3 className="text-4xl md:text-5xl font-black text-golden mb-2">
-                            <AnimatedCounter to={50} />+
+                            <AnimatedCounter to={12} />+ MW
                         </h3>
-                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Industrial Partners</h4>
-                        <p className="text-gray-600 font-medium">Protecting their bottom line from grid inflation.</p>
+                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Active Capacity</h4>
+                        <p className="text-gray-600 font-medium">Scaling India's clean energy grid, right now.</p>
                     </div>
                     <div>
                         <h3 className="text-4xl md:text-5xl font-black text-golden mb-2">
-                            <AnimatedCounter to={10} />+
+                            <AnimatedCounter to={8} /> States
                         </h3>
-                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Active Megawatt Sites</h4>
-                        <p className="text-gray-600 font-medium">Scaling India's clean energy grid, right now.</p>
+                        <h4 className="text-xl font-bold text-[#0A192F] mb-2">Operational Reach</h4>
+                        <p className="text-gray-600 font-medium">Protecting bottom lines from grid inflation.</p>
                     </div>
                 </motion.div>
             </section>
@@ -178,6 +178,7 @@ export default function About() {
             </section>
 
             {/* SECTION 4: CERTIFICATES OF EXCELLENCE */}
+
             <section className="w-full bg-[#FAF9F6] py-32 relative z-10">
                 <div className="max-w-5xl mx-auto px-6 md:px-12">
                     <div className="text-center mb-20">
@@ -198,9 +199,10 @@ export default function About() {
                                 <p className="text-gray-600 font-medium leading-relaxed mb-6 font-sans">
                                     Government-recognized certification validating our utility-scale products' elite quality and grid reliability. This confirms our adherence to the highest national standards.
                                 </p>
-                                <button className="bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-golden transition-colors">
-                                    View Certificate <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                                </button>
+                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-golden transition-colors">
+                                    Request Certificate Copy
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </Link>
                             </div>
                         </div>
 
@@ -226,6 +228,27 @@ export default function About() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            {/* BOTTOM CTA */}
+            <section className="relative w-full py-20 md:py-28 px-6 md:px-12 bg-[#0A192F] text-white overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#0A192F,#08152a)]" />
+                <div className="absolute -top-40 right-0 w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(255,183,3,0.18),transparent_70%)] pointer-events-none" />
+                <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+                    <div className="space-y-4 max-w-xl">
+                        <span className="inline-block text-[10px] font-bold tracking-[0.3em] uppercase text-golden">
+                            SolisShield™ · Free Site Visit
+                        </span>
+                        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]">
+                            Ready to own your energy?
+                        </h2>
+                        <p className="text-base text-white/65 font-medium leading-relaxed">
+                            Get a free site visit, 3D system design, and savings report — backed by our SolisShield™ guarantee. Zero cost, zero commitment.
+                        </p>
+                    </div>
+                    <div className="w-full lg:w-auto lg:min-w-[420px]">
+                        <LeadForm vertical="solar-parks" theme="dark" variant="card" />
                     </div>
                 </div>
             </section>
