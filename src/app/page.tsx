@@ -1301,21 +1301,21 @@ export default function Home() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+                        className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4"
                         onClick={(e) => e.target === e.currentTarget && setShowPopup(false)}
                     >
                         <motion.div
                             key="popup-card"
-                            initial={{ opacity: 0, scale: 0.95, y: 24 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 24 }}
+                            initial={{ opacity: 0, y: 60 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 60 }}
                             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                            className="relative w-full max-w-3xl bg-[#0A192F] rounded-[2rem] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.6)] flex flex-col md:flex-row"
+                            className="relative w-full sm:max-w-lg md:max-w-3xl bg-[#0A192F] rounded-t-[2rem] sm:rounded-[2rem] shadow-[0_-20px_60px_rgba(0,0,0,0.5)] sm:shadow-[0_40px_120px_rgba(0,0,0,0.6)] flex flex-col md:flex-row max-h-[92svh] sm:max-h-[90vh] overflow-hidden"
                         >
-                            {/* Close */}
+                            {/* Close — always anchored to top-right, above scroll */}
                             <button
                                 onClick={() => setShowPopup(false)}
-                                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                                className="absolute top-4 right-4 z-30 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors shrink-0"
                                 aria-label="Close"
                             >
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -1323,8 +1323,8 @@ export default function Home() {
                                 </svg>
                             </button>
 
-                            {/* Left — family photo */}
-                            <div className="hidden md:block relative w-[42%] shrink-0 min-h-[500px]">
+                            {/* Left — family photo, desktop only */}
+                            <div className="hidden md:block relative w-[42%] shrink-0">
                                 <img
                                     src="/family-rooftop-landscape.jpg"
                                     alt="Indian family with rooftop solar"
@@ -1342,21 +1342,15 @@ export default function Home() {
                                 </div>
                             </div>
 
-                            {/* Right — form */}
-                            <div className="flex-1 p-7 md:p-9 flex flex-col justify-center">
-                                <div className="mb-6">
-                                    <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-[0.25em] uppercase text-golden mb-3">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-golden animate-pulse" />
-                                        Limited Slots This Month
-                                    </span>
-                                    <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-[1.1]">
-                                        Claim Your Free<br />Site Visit Today.
-                                    </h2>
-                                    <p className="text-white/55 text-sm font-medium mt-2 leading-relaxed">
-                                        Get a custom savings report — no cost, no commitment.
-                                    </p>
+                            {/* Right — form, scrollable on mobile */}
+                            <div className="flex-1 overflow-y-auto overscroll-contain">
+                                {/* drag handle on mobile only */}
+                                <div className="flex justify-center pt-3 pb-1 sm:hidden">
+                                    <div className="w-10 h-1 rounded-full bg-white/20" />
                                 </div>
-                                <LeadForm vertical="solar-parks" theme="dark" variant="card" />
+                                <div className="p-5 sm:p-7 md:p-9 pt-3 sm:pt-10 md:pt-9">
+                                    <LeadForm vertical="solar-parks" theme="dark" variant="card" />
+                                </div>
                             </div>
                         </motion.div>
                     </motion.div>
