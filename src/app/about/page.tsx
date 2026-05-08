@@ -34,6 +34,18 @@ function AnimatedCounter({ from = 0, to, duration = 2 }: { from?: number, to: nu
 
 export default function About() {
     const [expandedFounder, setExpandedFounder] = useState<number | null>(null);
+    const [mnreState, setMnreState] = useState<"locked" | "form" | "unlocked">("locked");
+    const [certName, setCertName] = useState("");
+    const [certPhone, setCertPhone] = useState("");
+    const [certLoading, setCertLoading] = useState(false);
+
+    async function handleCertSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setCertLoading(true);
+        await new Promise((r) => setTimeout(r, 900));
+        setCertLoading(false);
+        setMnreState("unlocked");
+    }
 
     const founders = [
         { 
@@ -189,24 +201,71 @@ export default function About() {
                     <div className="space-y-16">
                         {/* Certificate 1 - MNRE */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2rem] shadow-lg border border-gray-100">
+                            {/* Visual side */}
                             <div className="order-2 md:order-1 flex justify-center">
-                                <div className="w-full max-w-[320px] aspect-[3/4] bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
-                                    <iframe
-                                        src="/Print%20_%20Udyam%20Registration%20Certificate.pdf"
-                                        title="Udyam Registration Certificate"
-                                        className="w-full h-full"
-                                    />
+                                <div className="w-full max-w-[320px] aspect-[3/4] rounded-2xl overflow-hidden border border-gray-100 shadow-inner bg-[#0A192F] flex flex-col items-center justify-center gap-4 p-8 relative">
+                                    {mnreState === "unlocked" ? (
+                                        <div className="flex flex-col items-center gap-4 text-center">
+                                            <div className="w-16 h-16 rounded-full bg-golden/20 flex items-center justify-center">
+                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFB703" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+                                            </div>
+                                            <p className="text-white font-bold text-base">Certificate Unlocked!</p>
+                                            <p className="text-white/60 text-xs font-medium">Thank you. Your MNRE approval certificate is ready.</p>
+                                            <a href="https://drive.google.com/file/d/1_JRLFVW73MO1nGeItM-Q7ikTbAEwB00T/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                                                className="mt-2 inline-flex items-center gap-2 bg-golden text-[#0A192F] font-bold px-5 py-2.5 rounded-full text-sm hover:bg-[#E5A500] transition-colors">
+                                                View Certificate
+                                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                            </a>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
+                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFB703" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                            </div>
+                                            <p className="text-white font-bold text-sm text-center">MNRE Approval Certificate</p>
+                                            <p className="text-white/40 text-xs text-center font-medium">Share your details to<br/>receive a verified copy</p>
+                                        </>
+                                    )}
                                 </div>
                             </div>
+                            {/* Text + form side */}
                             <div className="order-1 md:order-2">
                                 <h3 className="text-3xl font-bold text-[#0A192F] mb-4">MNRE Approval</h3>
                                 <p className="text-gray-600 font-medium leading-relaxed mb-6 font-sans">
-                                    Government-recognized certification validating our utility-scale products' elite quality and grid reliability. This confirms our adherence to the highest national standards.
+                                    Government-recognized certification validating our utility-scale products&apos; elite quality and grid reliability. Share your details below to receive a verified copy.
                                 </p>
-                                <Link href="/contact" className="inline-flex items-center gap-2 bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-golden transition-colors">
-                                    Request Certificate Copy
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                                </Link>
+
+                                {mnreState === "locked" && (
+                                    <button onClick={() => setMnreState("form")}
+                                        className="inline-flex items-center gap-2 bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-golden transition-colors">
+                                        Request Certificate Copy
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                    </button>
+                                )}
+
+                                {mnreState === "form" && (
+                                    <form onSubmit={handleCertSubmit} className="flex flex-col gap-3 max-w-sm">
+                                        <input required value={certName} onChange={e => setCertName(e.target.value)}
+                                            placeholder="Your full name" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-golden transition-colors" />
+                                        <input required value={certPhone} onChange={e => setCertPhone(e.target.value)}
+                                            placeholder="WhatsApp number" type="tel" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-golden transition-colors" />
+                                        <button type="submit" disabled={certLoading}
+                                            className="inline-flex items-center justify-center gap-2 bg-golden text-[#0A192F] font-bold px-6 py-3 rounded-full text-sm hover:bg-[#E5A500] transition-colors disabled:opacity-60">
+                                            {certLoading ? "Verifying…" : "Get My Certificate"}
+                                        </button>
+                                    </form>
+                                )}
+
+                                {mnreState === "unlocked" && (
+                                    <div className="flex flex-col gap-3">
+                                        <p className="text-sm font-medium text-green-600">✓ Your certificate link is ready on the left.</p>
+                                        <a href="https://drive.google.com/file/d/1_JRLFVW73MO1nGeItM-Q7ikTbAEwB00T/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-golden transition-colors w-fit">
+                                            View MNRE Certificate
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         </div>
 
@@ -217,13 +276,14 @@ export default function About() {
                                 <p className="text-gray-600 font-medium leading-relaxed mb-6 font-sans">
                                     Certified under the Start-up India initiative. This distinction underscores our aggressive, innovative approach to revolutionizing the renewable energy sector.
                                 </p>
-                                <a 
-                                    href="https://drive.google.com/file/d/14pRXMtJzXdgQfEjmje7dFNqiiGQpir68/view?usp=sharing" 
-                                    target="_blank" 
+                                <a
+                                    href="https://drive.google.com/file/d/1Kn-FXjc4sAehaERaZwbJIhHbSl7bO-wf/view?usp=sharing"
+                                    target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex bg-[#0A192F] text-white px-6 py-3 rounded-full text-sm font-bold items-center gap-2 hover:bg-golden transition-colors"
                                 >
-                                    View Brochure <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                    Download Company Profile
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                                 </a>
                             </div>
                             <div className="flex justify-center">

@@ -62,7 +62,7 @@ export default function EVChargingPage() {
 
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
                                 className="relative w-full aspect-[5/3] rounded-[1.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] bg-[#0A192F]">
-                                <img src="/commercial-solar.jpeg"
+                                <img src="/evcharging-solar.jpeg"
                                     alt="EV charging with solar" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/40 via-transparent to-transparent pointer-events-none" />
                             </motion.div>

@@ -27,7 +27,8 @@
       "Bash(commercial)",
       "Bash(industrial)",
       "Bash(power\")",
-      "Bash(dir /b \"C:\\\\Users\\\\ASUS\\\\Documents\\\\solar-updated-website\\\\public\")"
+      "Bash(dir /b \"C:\\\\Users\\\\ASUS\\\\Documents\\\\solar-updated-website\\\\public\")",
+      "Bash(cp \"C:\\\\Users\\\\ASUS\\\\Documents\\\\solar-updated-website\\\\public\\\\evcharging-solar.jpeg\" \"C:\\\\Users\\\\ASUS\\\\Documents\\\\solar-updated-website\\\\.claude\\\\worktrees\\\\confident-wilbur-08b164\\\\public\\\\evcharging-solar.jpeg\" && echo \"Copied\")"
     ]
   }
 }

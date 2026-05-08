@@ -197,10 +197,10 @@ export default function Home() {
             </main>
 
             {/* SLIDE OVER CONTAINER */}
-            <div className="relative z-10 bg-[#FAF9F6] rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.06)] w-full overflow-hidden text-[#111111] mt-10">
-                <div className="relative z-50 w-full pt-24 pb-24 text-[#111111]">
+            <div className="relative z-10 bg-[#FAF9F6] rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.06)] w-full overflow-hidden text-[#111111]">
+                <div className="relative z-50 w-full text-[#111111]">
                     {/* MARQUEES - LARGER LOGOS */}
-                    <div className="relative w-full bg-white text-[#0A192F] pt-24 pb-24 flex flex-col gap-24">
+                    <div className="relative w-full bg-white text-[#0A192F] pt-16 pb-16 flex flex-col gap-16">
                         <section className="w-full overflow-hidden">
                             <div className="max-w-7xl mx-auto px-6 text-center mb-12">
                                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Our Satisfied Clients</h2>
