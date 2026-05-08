@@ -37,14 +37,31 @@ export default function About() {
     const [mnreState, setMnreState] = useState<"locked" | "form" | "unlocked">("locked");
     const [certName, setCertName] = useState("");
     const [certPhone, setCertPhone] = useState("");
+    const [certEmail, setCertEmail] = useState("");
     const [certLoading, setCertLoading] = useState(false);
 
     async function handleCertSubmit(e: React.FormEvent) {
         e.preventDefault();
         setCertLoading(true);
-        await new Promise((r) => setTimeout(r, 900));
-        setCertLoading(false);
-        setMnreState("unlocked");
+        try {
+            await fetch("/api/lead", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: certName,
+                    email: certEmail,
+                    whatsapp: certPhone,
+                    vertical: "solar-parks",
+                    billRange: "",
+                    pincode: "",
+                }),
+            });
+        } catch {
+            // non-blocking — unlock regardless
+        } finally {
+            setCertLoading(false);
+            setMnreState("unlocked");
+        }
     }
 
     const founders = [
@@ -246,9 +263,11 @@ export default function About() {
                                 {mnreState === "form" && (
                                     <form onSubmit={handleCertSubmit} className="flex flex-col gap-3 max-w-sm">
                                         <input required value={certName} onChange={e => setCertName(e.target.value)}
-                                            placeholder="Your full name" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-golden transition-colors" />
+                                            placeholder="Your full name" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-[#0A192F] outline-none focus:border-golden transition-colors" />
+                                        <input required type="email" value={certEmail} onChange={e => setCertEmail(e.target.value)}
+                                            placeholder="Email address" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-[#0A192F] outline-none focus:border-golden transition-colors" />
                                         <input required value={certPhone} onChange={e => setCertPhone(e.target.value)}
-                                            placeholder="WhatsApp number" type="tel" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium outline-none focus:border-golden transition-colors" />
+                                            placeholder="WhatsApp number" type="tel" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-[#0A192F] outline-none focus:border-golden transition-colors" />
                                         <button type="submit" disabled={certLoading}
                                             className="inline-flex items-center justify-center gap-2 bg-golden text-[#0A192F] font-bold px-6 py-3 rounded-full text-sm hover:bg-[#E5A500] transition-colors disabled:opacity-60">
                                             {certLoading ? "Verifying…" : "Get My Certificate"}

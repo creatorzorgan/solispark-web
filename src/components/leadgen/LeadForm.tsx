@@ -201,9 +201,9 @@ export default function LeadForm({
                                     onChange={(e) => update("billRange", e.target.value)}
                                     className={cn(inputCls(isDark), "appearance-none pr-10 cursor-pointer")}
                                 >
-                                    <option value="" disabled>Select a range</option>
+                                    <option value="" disabled className="text-[#0A192F] bg-white">Select a range</option>
                                     {BILL_RANGES.map((b) => (
-                                        <option key={b.id} value={b.id}>{b.label}</option>
+                                        <option key={b.id} value={b.id} className="text-[#0A192F] bg-white">{b.label}</option>
                                     ))}
                                 </select>
                             </Field>
