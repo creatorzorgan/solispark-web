@@ -404,7 +404,7 @@ export default function Home() {
                                 className="mb-12 relative w-full h-[220px] md:h-[300px] rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(10,25,47,0.10)]"
                             >
                                 <img
-                                    src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1600&auto=format&fit=crop"
+                                    src="/commercial-solar.jpeg"
                                     alt="Solispark commercial solar installation in Bengaluru"
                                     className="w-full h-full object-cover"
                                     loading="lazy"
@@ -816,17 +816,17 @@ export default function Home() {
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                 {[
                                     {
-                                        src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=900&auto=format&fit=crop",
+                                        src: "/residential-solar.jpeg",
                                         label: "Residential Rooftop · Bengaluru",
                                         caption: "3 kW · installed in 1 day",
                                     },
                                     {
-                                        src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=900&auto=format&fit=crop",
+                                        src: "/solarpark-solar.jpeg",
                                         label: "Industrial Solar Park · Karnataka",
                                         caption: "1.2 MW · zero downtime install",
                                     },
                                     {
-                                        src: "https://images.unsplash.com/photo-1592833159155-c62df1b65634?q=80&w=900&auto=format&fit=crop",
+                                        src: "/commercial-rooftop-main.jpeg",
                                         label: "Commercial Rooftop · Mysuru",
                                         caption: "Bills dropped 78% from Month 1",
                                     },

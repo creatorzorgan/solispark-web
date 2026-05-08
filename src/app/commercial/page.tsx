@@ -63,8 +63,8 @@ export default function CommercialPage() {
 
                             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.24, ease: EASE }}
                                 className="relative w-full aspect-[5/3] rounded-[1.5rem] overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] bg-gradient-to-br from-[#FFB703] via-[#E5A500] to-[#0A192F]">
-                                <img src="/dji-image-2.jpg"
-                                    alt="Commercial warehouse rooftop solar installation" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
+                                <img src="/commercial-rooftop-main.jpeg"
+                                    alt="Commercial rooftop solar installation" className="absolute inset-0 w-full h-full object-cover" loading="eager" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/40 via-transparent to-transparent pointer-events-none" />
                             </motion.div>
 

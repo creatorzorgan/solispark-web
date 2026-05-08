@@ -61,7 +61,7 @@ export default function Portfolio() {
                     className="w-full bg-white border border-gray-200 rounded-[3rem] overflow-hidden mb-32 shadow-2xl group flex flex-col lg:flex-row items-center"
                 >
                     <div className="w-full lg:w-3/5 h-[400px] lg:h-[650px] overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2000&auto=format&fit=crop" alt="Featured Project" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        <img src="/commercial-rooftop-main.jpeg" alt="Featured Project" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="w-full lg:w-2/5 p-10 lg:p-16 flex flex-col justify-center">
                         <div className="inline-block px-4 py-2 rounded-full bg-golden/10 text-golden text-xs font-bold tracking-widest uppercase w-fit mb-8 border border-golden/20">

@@ -20,17 +20,17 @@ const VERTICAL_CONFIG: Record<Vertical, VerticalConfig> = {
         eyebrow: "Free Consultation",
         headline: "Get your solar estimate.",
         subheadline:
-            "Backed by the SolisShield™ 30-year guarantee. No spam, no obligation.",
+            "Backed by the Solispark 30-year guarantee. No spam, no obligation.",
         cta: "Book Free Consultation",
         successHeadline: "Consultation booked.",
         successBody:
-            "Our team will reach out within one business day with your custom SolisShield™ project plan.",
+            "Our team will reach out within one business day with your custom Solispark project plan.",
     },
     commercial: {
         eyebrow: "Free Consultation",
         headline: "Cut your commercial energy bill.",
         subheadline:
-            "Day-one savings. SolisShield™ guaranteed. Free site assessment included.",
+            "Day-one savings. Solispark guaranteed. Free site assessment included.",
         cta: "Book Free Consultation",
         successHeadline: "Consultation booked.",
         successBody:
@@ -40,7 +40,7 @@ const VERTICAL_CONFIG: Record<Vertical, VerticalConfig> = {
         eyebrow: "Free Consultation",
         headline: "Power your factory floor.",
         subheadline:
-            "Zero downtime install. SolisShield™ secured. Free load analysis.",
+            "Zero downtime install. Solispark secured. Free load analysis.",
         cta: "Book Free Consultation",
         successHeadline: "Consultation booked.",
         successBody:
@@ -50,7 +50,7 @@ const VERTICAL_CONFIG: Record<Vertical, VerticalConfig> = {
         eyebrow: "Free Consultation",
         headline: "Turn your home into an asset.",
         subheadline:
-            "SolisShield™ 30-year guarantee. PM Surya Ghar subsidy handled end-to-end.",
+            "Solispark 30-year guarantee. PM Surya Ghar subsidy handled end-to-end.",
         cta: "Book Free Consultation",
         successHeadline: "Consultation booked.",
         successBody:
@@ -60,7 +60,7 @@ const VERTICAL_CONFIG: Record<Vertical, VerticalConfig> = {
         eyebrow: "Free Consultation",
         headline: "Solar-backed EV charging.",
         subheadline:
-            "Future-proof your fleet or facility. SolisShield™ secured.",
+            "Future-proof your fleet or facility. Solispark secured.",
         cta: "Book Free Consultation",
         successHeadline: "Consultation booked.",
         successBody:
@@ -70,7 +70,7 @@ const VERTICAL_CONFIG: Record<Vertical, VerticalConfig> = {
         eyebrow: "Free Consultation",
         headline: "Power your society. Save lakhs.",
         subheadline:
-            "Common-area solar for apartments and RWAs. SolisShield™ guaranteed.",
+            "Common-area solar for apartments and RWAs. Solispark guaranteed.",
         cta: "Book Free Consultation",
         successHeadline: "Consultation booked.",
         successBody:

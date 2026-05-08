@@ -63,7 +63,7 @@ export default function About() {
                         </h1>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative h-[400px] md:h-[500px] rounded-[2rem] overflow-hidden shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=1200&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover" alt="Solar Panels" />
+                        <img src="/solarpark-solar.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Utility-scale solar park" />
                     </motion.div>
                 </div>
 
@@ -114,7 +114,7 @@ export default function About() {
                         </div>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative h-[400px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=800&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover" alt="Office Facility" />
+                        <img src="/residential-solar.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Solispark residential solar installation" />
                     </motion.div>
                 </div>
             </section>

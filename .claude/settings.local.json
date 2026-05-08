@@ -26,7 +26,8 @@
       "Bash(residential)",
       "Bash(commercial)",
       "Bash(industrial)",
-      "Bash(power\")"
+      "Bash(power\")",
+      "Bash(dir /b \"C:\\\\Users\\\\ASUS\\\\Documents\\\\solar-updated-website\\\\public\")"
     ]
   }
 }
