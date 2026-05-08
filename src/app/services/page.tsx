@@ -151,7 +151,7 @@ export default function Services() {
 
                                 <Link
                                     href="/contact"
-                                    className="inline-block bg-golden hover:bg-[#E5A500] text-[#0A192F] font-bold px-10 py-5 rounded-2xl transition-all shadow-xl hover:-translate-y-1"
+                                    className="inline-block btn-gold font-bold px-10 py-5 rounded-2xl shadow-xl hover:-translate-y-1 transition-transform"
                                 >
                                     Get Free Estimate
                                 </Link>

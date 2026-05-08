@@ -282,7 +282,7 @@ export default function Contact() {
                                         <button
                                             type="submit"
                                             disabled={status === "loading"}
-                                            className="sm:col-span-2 mt-2 bg-golden text-[#0A192F] font-black py-4 rounded-2xl text-base shadow-lg hover:scale-[1.02] transition-transform disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-3"
+                                            className="sm:col-span-2 mt-2 btn-gold font-black py-4 rounded-2xl text-base shadow-lg hover:scale-[1.02] transition-transform disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-3"
                                         >
                                             {status === "loading" ? (
                                                 <>

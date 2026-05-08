@@ -99,7 +99,7 @@ export default function Navbar() {
                 {/* Desktop CTA */}
                 <Link
                     href="/contact"
-                    className="hidden md:inline-flex bg-golden hover:bg-[#E5A500] text-[#0A192F] font-bold px-6 py-2.5 rounded-full text-sm transition-all hover:shadow-[0_0_15px_rgba(255,183,3,0.4)]"
+                    className="hidden md:inline-flex btn-gold font-bold px-6 py-2.5 rounded-full text-sm"
                 >
                     Get Free Estimate
                 </Link>

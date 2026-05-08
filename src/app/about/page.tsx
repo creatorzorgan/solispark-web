@@ -137,7 +137,7 @@ export default function About() {
                             <p className="text-[#FBFBFB] font-medium text-lg md:text-xl">
                                 Stop guessing. Claim your <span className="text-golden font-bold">Free Site Visit</span> & <span className="text-golden font-bold">Consultation</span> today.
                             </p>
-                            <Link href="/contact" className="inline-block mt-6 bg-golden text-[#0A192F] font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform">
+                            <Link href="/contact" className="inline-block mt-6 btn-gold font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform">
                                 Lock In Your Audit
                             </Link>
                         </div>
@@ -229,7 +229,7 @@ export default function About() {
                                             <p className="text-white font-bold text-base">Certificate Unlocked!</p>
                                             <p className="text-white/60 text-xs font-medium">Thank you. Your MNRE approval certificate is ready.</p>
                                             <a href="https://drive.google.com/file/d/1_JRLFVW73MO1nGeItM-Q7ikTbAEwB00T/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-                                                className="mt-2 inline-flex items-center gap-2 bg-golden text-[#0A192F] font-bold px-5 py-2.5 rounded-full text-sm hover:bg-[#E5A500] transition-colors">
+                                                className="mt-2 inline-flex items-center gap-2 btn-gold font-bold px-5 py-2.5 rounded-full text-sm">
                                                 View Certificate
                                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="-rotate-45"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                             </a>
@@ -269,7 +269,7 @@ export default function About() {
                                         <input required value={certPhone} onChange={e => setCertPhone(e.target.value)}
                                             placeholder="WhatsApp number" type="tel" className="border border-gray-200 rounded-xl px-4 py-3 text-sm font-medium text-[#0A192F] outline-none focus:border-golden transition-colors" />
                                         <button type="submit" disabled={certLoading}
-                                            className="inline-flex items-center justify-center gap-2 bg-golden text-[#0A192F] font-bold px-6 py-3 rounded-full text-sm hover:bg-[#E5A500] transition-colors disabled:opacity-60">
+                                            className="inline-flex items-center justify-center gap-2 btn-gold font-bold px-6 py-3 rounded-full text-sm disabled:opacity-60"
                                             {certLoading ? "Verifying…" : "Get My Certificate"}
                                         </button>
                                     </form>

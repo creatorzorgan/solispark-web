@@ -1041,7 +1041,7 @@ export default function Home() {
                                                 </div>
                                             </div>
 
-                                            <Link href="/contact" className="mt-2 w-full inline-flex items-center justify-center gap-2 bg-golden text-[#0A192F] font-black px-6 py-4 rounded-xl shadow-[0_10px_25px_rgba(255,183,3,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-transform">
+                                            <Link href="/contact" className="mt-2 w-full inline-flex items-center justify-center gap-2 btn-gold font-black px-6 py-4 rounded-xl shadow-[0_10px_25px_rgba(255,183,3,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-transform">
                                                 Lock In These Savings
                                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <path d="M5 12h14" />

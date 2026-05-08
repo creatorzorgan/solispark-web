@@ -101,7 +101,7 @@ export default function FAQPage() {
                         </div>
                         <Link
                             href="/contact"
-                            className="inline-flex flex-shrink-0 items-center justify-center rounded-full bg-golden px-7 py-3 text-sm md:text-base font-bold text-[#0A192F] hover:bg-[#E5A500] transition-colors"
+                            className="inline-flex flex-shrink-0 items-center justify-center rounded-full btn-gold px-7 py-3 text-sm md:text-base font-bold"
                         >
                             Book a Free Site Survey
                         </Link>

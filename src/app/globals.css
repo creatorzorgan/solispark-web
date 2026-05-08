@@ -18,3 +18,17 @@ body {
   background-color: #FFB703;
   color: #0A192F;
 }
+
+@keyframes gradient-sweep {
+  0%   { background-position: 200% center; }
+  100% { background-position: 0%   center; }
+}
+
+@layer utilities {
+  .btn-gold {
+    background: linear-gradient(90deg, #FFB703 0%, #FBBF24 35%, #E5A500 65%, #FFB703 100%);
+    background-size: 200% auto;
+    animation: gradient-sweep 2.5s linear infinite;
+    color: #0A192F;
+  }
+}

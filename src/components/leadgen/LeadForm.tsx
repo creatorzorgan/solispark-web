@@ -223,7 +223,7 @@ export default function LeadForm({
                             <button
                                 type="submit"
                                 disabled={status === "submitting"}
-                                className="mt-2 inline-flex items-center justify-center gap-2 bg-golden text-[#0A192F] font-black px-6 py-4 rounded-xl shadow-[0_10px_25px_rgba(255,183,3,0.3)] hover:scale-[1.02] active:scale-[0.99] transition-transform disabled:opacity-60 disabled:cursor-not-allowed"
+                                className="mt-2 inline-flex items-center justify-center gap-2 btn-gold font-black px-6 py-4 rounded-xl shadow-[0_10px_25px_rgba(255,183,3,0.3)] hover:scale-[1.02] active:scale-[0.99] transition-transform disabled:opacity-60 disabled:cursor-not-allowed"
                             >
                                 {status === "submitting" ? "Sending..." : config.cta}
                                 {status !== "submitting" && (
