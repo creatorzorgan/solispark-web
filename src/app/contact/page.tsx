@@ -1,8 +1,60 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+type Status = "idle" | "loading" | "success" | "error";
+
+const BILL_RANGES = [
+    "Under ₹2,000",
+    "₹2,000 – ₹5,000",
+    "₹5,000 – ₹10,000",
+    "₹10,000 – ₹25,000",
+    "₹25,000 – ₹50,000",
+    "Above ₹50,000",
+];
+
+const VERTICALS = [
+    { value: "industrial-capex", label: "Industrial – CAPEX" },
+    { value: "industrial-opex", label: "Industrial – OPEX / BOOT" },
+    { value: "residential", label: "Premium Residential" },
+    { value: "utility-scale", label: "Utility-Scale / Solar Park" },
+    { value: "ev-charging", label: "EV Charging Infrastructure" },
+    { value: "commercial", label: "Commercial Rooftop" },
+];
 
 export default function Contact() {
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        whatsapp: "",
+        billRange: "",
+        pincode: "",
+        vertical: "",
+    });
+    const [status, setStatus] = useState<Status>("idle");
+
+    function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+        setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    }
+
+    async function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+        setStatus("loading");
+        try {
+            const res = await fetch("/api/lead", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
+            if (!res.ok) throw new Error();
+            setStatus("success");
+            setForm({ name: "", email: "", whatsapp: "", billRange: "", pincode: "", vertical: "" });
+        } catch {
+            setStatus("error");
+        }
+    }
+
     return (
         <main className="min-h-screen pt-24 md:pt-32 pb-24 bg-[#FAF9F6] text-[#0A192F]">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -88,7 +140,7 @@ export default function Contact() {
                         </div>
                     </motion.div>
 
-                    {/* RIGHT — Tally form */}
+                    {/* RIGHT — consultation form */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -103,13 +155,150 @@ export default function Contact() {
                                 Takes under 2 minutes. No spam, ever.
                             </p>
                         </div>
-                        <div className="px-2">
-                            <iframe
-                                src="https://tally.so/r/VL87lE"
-                                frameBorder="0"
-                                title="Contact Form"
-                                className="w-full min-h-[640px] border-0"
-                            />
+
+                        <div className="p-7 md:p-10">
+                            <AnimatePresence mode="wait">
+                                {status === "success" ? (
+                                    <motion.div
+                                        key="success"
+                                        initial={{ opacity: 0, scale: 0.96 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="flex flex-col items-center justify-center gap-5 py-16 text-center"
+                                    >
+                                        <div className="w-16 h-16 rounded-full bg-golden/10 border-2 border-golden flex items-center justify-center">
+                                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <path d="M20 6 9 17l-5-5" />
+                                            </svg>
+                                        </div>
+                                        <h2 className="text-2xl font-black uppercase tracking-tight text-[#0A192F]">
+                                            Request Received
+                                        </h2>
+                                        <p className="text-[#0A192F]/60 font-medium max-w-sm text-sm leading-relaxed">
+                                            Our engineering team will reach out within 24 hours to schedule your free site visit and savings analysis.
+                                        </p>
+                                        <button
+                                            onClick={() => setStatus("idle")}
+                                            className="mt-2 text-sm font-bold text-golden underline underline-offset-4"
+                                        >
+                                            Submit another enquiry
+                                        </button>
+                                    </motion.div>
+                                ) : (
+                                    <motion.form
+                                        key="form"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        onSubmit={handleSubmit}
+                                        className="grid grid-cols-1 sm:grid-cols-2 gap-5"
+                                    >
+                                        <div className="flex flex-col gap-1.5">
+                                            <label className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]/50">Full Name *</label>
+                                            <input
+                                                name="name"
+                                                type="text"
+                                                required
+                                                value={form.name}
+                                                onChange={handleChange}
+                                                placeholder="Rajat Sharma"
+                                                className="p-3.5 rounded-xl border border-gray-200 bg-[#FAF9F6] text-sm font-medium focus:outline-none focus:ring-2 focus:ring-golden"
+                                            />
+                                        </div>
+
+                                        <div className="flex flex-col gap-1.5">
+                                            <label className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]/50">Email Address *</label>
+                                            <input
+                                                name="email"
+                                                type="email"
+                                                required
+                                                value={form.email}
+                                                onChange={handleChange}
+                                                placeholder="rajat@company.com"
+                                                className="p-3.5 rounded-xl border border-gray-200 bg-[#FAF9F6] text-sm font-medium focus:outline-none focus:ring-2 focus:ring-golden"
+                                            />
+                                        </div>
+
+                                        <div className="flex flex-col gap-1.5">
+                                            <label className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]/50">WhatsApp Number</label>
+                                            <input
+                                                name="whatsapp"
+                                                type="tel"
+                                                value={form.whatsapp}
+                                                onChange={handleChange}
+                                                placeholder="+91 98765 43210"
+                                                className="p-3.5 rounded-xl border border-gray-200 bg-[#FAF9F6] text-sm font-medium focus:outline-none focus:ring-2 focus:ring-golden"
+                                            />
+                                        </div>
+
+                                        <div className="flex flex-col gap-1.5">
+                                            <label className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]/50">PIN Code</label>
+                                            <input
+                                                name="pincode"
+                                                type="text"
+                                                value={form.pincode}
+                                                onChange={handleChange}
+                                                placeholder="560001"
+                                                className="p-3.5 rounded-xl border border-gray-200 bg-[#FAF9F6] text-sm font-medium focus:outline-none focus:ring-2 focus:ring-golden"
+                                            />
+                                        </div>
+
+                                        <div className="flex flex-col gap-1.5">
+                                            <label className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]/50">Avg. Monthly Bill</label>
+                                            <select
+                                                name="billRange"
+                                                value={form.billRange}
+                                                onChange={handleChange}
+                                                className="p-3.5 rounded-xl border border-gray-200 bg-[#FAF9F6] text-sm font-medium focus:outline-none focus:ring-2 focus:ring-golden"
+                                            >
+                                                <option value="">Select range</option>
+                                                {BILL_RANGES.map((r) => (
+                                                    <option key={r} value={r}>{r}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+
+                                        <div className="flex flex-col gap-1.5">
+                                            <label className="text-[11px] font-bold uppercase tracking-widest text-[#0A192F]/50">Project Type</label>
+                                            <select
+                                                name="vertical"
+                                                value={form.vertical}
+                                                onChange={handleChange}
+                                                className="p-3.5 rounded-xl border border-gray-200 bg-[#FAF9F6] text-sm font-medium focus:outline-none focus:ring-2 focus:ring-golden"
+                                            >
+                                                <option value="">Select type</option>
+                                                {VERTICALS.map((v) => (
+                                                    <option key={v.value} value={v.value}>{v.label}</option>
+                                                ))}
+                                            </select>
+                                        </div>
+
+                                        {status === "error" && (
+                                            <p className="sm:col-span-2 text-center text-red-500 text-sm font-bold">
+                                                Something went wrong. Please try again or call us directly.
+                                            </p>
+                                        )}
+
+                                        <button
+                                            type="submit"
+                                            disabled={status === "loading"}
+                                            className="sm:col-span-2 mt-2 bg-golden text-[#0A192F] font-black py-4 rounded-2xl text-base shadow-lg hover:scale-[1.02] transition-transform disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100 flex items-center justify-center gap-3"
+                                        >
+                                            {status === "loading" ? (
+                                                <>
+                                                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+                                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                                                    </svg>
+                                                    Submitting…
+                                                </>
+                                            ) : (
+                                                "Get My Free Estimate →"
+                                            )}
+                                        </button>
+                                    </motion.form>
+                                )}
+                            </AnimatePresence>
                         </div>
                     </motion.div>
                 </div>
